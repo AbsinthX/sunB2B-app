@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'main'])->name('main');
+
+Route::get('register-step2', [App\Http\Controllers\Auth\RegisterStep2Controller::class, 'showForm'])->middleware('auth');
+Route::post('register-step2', [App\Http\Controllers\Auth\RegisterStep2Controller::class, 'postForm'])
+  ->name('register.step2');
+
 
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth');
 
