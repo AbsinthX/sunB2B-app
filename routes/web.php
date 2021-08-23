@@ -17,11 +17,10 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', [HomeController::class, 'main'])->name('main');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('register-step2', [RegisterStep2Controller::class, 'showForm'])->middleware('auth');
-Route::post('register-step2', [RegisterStep2Controller::class, 'postForm'])
-  ->name('register.step2');
+Route::post('register-step2', [RegisterStep2Controller::class, 'postForm'])->name('register.step2')->middleware('auth');
 
 
 Route::get('/users/list', [UserController::class, 'index'])->middleware('auth');
@@ -32,4 +31,4 @@ Route::get('/products/list', [ProductController::class, 'index'])->middleware('a
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+

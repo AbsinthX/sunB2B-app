@@ -32,4 +32,10 @@ class Country extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+    
+    public function country()
+    {
+        return $this->hasMAny('App\Models\User');
+    }
+    
 }

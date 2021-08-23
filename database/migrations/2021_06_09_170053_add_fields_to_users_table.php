@@ -14,9 +14,8 @@ class AddFieldsToUsersTable extends Migration
     public function up()
 {
     Schema::table('users', function (Blueprint $table) {
-        $table->unsignedInteger('country_id')->nullable();
-        $table->foreign('country_id')->references('id')->on('countries');
-        $table->text('biography')->nullable();
+        $table->unsignedBigInteger('country_id')->constrained()->nullable()->after('password');
+        $table->text('biography')->nullable()->after('country_id');
     });
 }
     public function down()

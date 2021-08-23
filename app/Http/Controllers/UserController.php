@@ -10,7 +10,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Application\Factory\View
      */
     public function index()
     {
