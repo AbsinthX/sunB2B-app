@@ -41,7 +41,7 @@ class ProductsTableSeeder extends Seeder
             ],
             [
                 'name'       => 'Haki regulowane podwójnie typu Vario',
-                'description' => 'aki regulowane podwójnie typu Vario',
+                'description' => 'Haki regulowane podwójnie typu Vario',
                 'amount' => '1000',
                 'price' => '15.52',
             ],

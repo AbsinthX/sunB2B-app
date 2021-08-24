@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisterStep2Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CalculatorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,9 @@ Route::get('/users/{user}', [UserController::class, 'destroy'])->middleware('aut
 Route::get('/users/list', [UserController::class, 'index'])->middleware('auth');
 
 Route::get('/products/list', [ProductController::class, 'index'])->middleware('auth');
+
+Route::get('/calculator', [CalculatorController::class, 'index'])->middleware('auth');
+
 
 Auth::routes();
 
