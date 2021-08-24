@@ -27,8 +27,10 @@ Route::post('register-step2', [RegisterStep2Controller::class, 'postForm'])->nam
 Route::get('/users/list', [UserController::class, 'index'])->middleware('auth');
 Route::get('/users/{user}', [UserController::class, 'destroy'])->middleware('auth');
 Route::get('/users/list', [UserController::class, 'index'])->middleware('auth');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->middleware('auth'); 
 
 Route::get('/products/list', [ProductController::class, 'index'])->middleware('auth');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->middleware('auth');
 
 Route::get('/calculator', [CalculatorController::class, 'index'])->middleware('auth');
 
