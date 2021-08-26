@@ -1,8 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
+<div class="row">
+    <div class="col-6"> <h1>Lista produktów </h1> </div>
+    
+    <div class="col-6">
+        <a class="float-right" href="{{ route('products.create') }}">
+            <button type="button" class="btn btn-primary">Dodaj produkt</button>
+        </a>
+    </div>
+    
+</div>
+<div class="row">
 <table class="table table-borderless">
   <thead>
     <tr>
@@ -33,6 +43,7 @@
 </table>
     
     <div class="d-flex justify-content-center">{{ $products->links() }}</div>
+</div>
 </div>
 @endsection
 
