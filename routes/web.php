@@ -33,6 +33,7 @@ Route::get('/products/list', [ProductController::class, 'index'])->name('product
 Route::post('/products/list', [ProductController::class, 'store'])->name('products.store')->middleware('auth');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('auth');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->middleware('auth');
+Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit')->middleware('auth');
 
 Route::get('/calculator', [CalculatorController::class, 'index'])->middleware('auth');
 
