@@ -51,7 +51,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -77,7 +79,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->fill($request->all());
+        $product->save();
+        return redirect(route('products.index'));
     }
 
     /**
@@ -87,11 +91,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $product = Product::find($id);
-        $product->delete();
-        return response()->json([
-            'status' => 'success'
-        ]);
-    }
+{
+            $product = Product::find($id);
+            $product->delete();
+            return response()->json([
+            'status' => 'success']);
+}
 }

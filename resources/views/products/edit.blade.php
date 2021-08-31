@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Edytuj produkt') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('products.store') }}">
+                    <form method="POST" action="{{ route('products.update', $product->id) }}">
                         @csrf
 
                         <div class="form-group row">
