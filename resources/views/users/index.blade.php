@@ -5,23 +5,31 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Imię</th>
-      <th scope="col">Email</th>
-      <th scope="col">Państwo</th>
-      <th scope="col">Opis</th>
-      <th scope="col">Akcje</th>
+      <th style="width: 5%" scope="col">#</th>
+      <th style="width: 15%" scope="col">Nazwa</th>
+      <th style="width: 10%" scope="col">NIP</th>
+      <th style="width: 15%" scope="col">Email</th>
+      <th style="width: 15%" scope="col">Telefon</th>
+      <th style="width: 20%" scope="col">Adres</th>
+      <th style="width: 20%" scope="col">Akcje</th>
     </tr>
   </thead>
   <tbody>
       @foreach($users as $user)
     <tr>
       <th scope="row">{{$user -> id}}</th>
-      <td>{{$user -> name}}</td>
-      <td>{{$user -> email}}</td> 
-      <td>{{$user->country->name }}</td> 
-      <td>{{$user -> biography}}</td> 
-      <td>
+      <td class="align-middle">{{$user -> name}}</td>
+      <td class="align-middle">{{$user -> nip}}</td> 
+      <td class="align-middle">{{$user-> email }}</td> 
+      <td class="align-middle">{{$user -> phone}}</td> 
+      <td class="align-middle" style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+         {{$user -> street}}<br>
+         {{ $user -> postal_code }}
+         {{ $user -> city }}<br>
+         {{ $user -> state }}<br>
+         {{ $user -> country->name }}
+      </td> 
+      <td class="align-middle">
           <button class="btn btn-danger btn-sm delete" data-id="{{$user -> id}}"> 
               X
           </button>

@@ -15,9 +15,11 @@
                     @endif
                     
                     <div class="row row-cols-1 row-cols-md-3 g-8">
-                        <div class="col mb-3">
+                        <div class="col mb-3 ">
                             <div class="card">
-                                <img src="{{ asset('img/sun1.jpg') }}" class="card-img-top" alt="...">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                <img src="{{ asset('img/sun1.jpg') }}" class="card-img-top embed-responsive-item" alt="...">
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Fotowoltaika przyszłości</h5>
                                     <p class="card-text">Zobacz jak technologia rozwija się na naszych oczach.</p>
@@ -27,7 +29,9 @@
                         </div>
                         <div class="col mb-3">
                             <div class="card">
-                                <img src="{{ asset('img/sun1.jpg') }}" class="card-img-top" alt="...">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                <img src="{{ asset('img/sun2.jpg') }}" class="card-img-top embed-responsive-item" alt="...">
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Fotowoltaika przyszłości</h5>
                                     <p class="card-text">Zobacz jak technologia rozwija się na naszych oczach.</p>
@@ -37,7 +41,9 @@
                         </div>
                         <div class="col mb-3">
                             <div class="card">
-                                <img src="{{ asset('img/sun1.jpg') }}" class="card-img-top" alt="...">
+                                <div class="embed-responsive embed-responsive-1by1">
+                                <img src="{{ asset('img/sun3.jpg') }}" class="card-img-top embed-responsive-item" alt="...">
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Fotowoltaika przyszłości</h5>
                                     <p class="card-text">Zobacz jak technologia rozwija się na naszych oczach.</p>
@@ -47,7 +53,9 @@
                         </div>
                         <div class="col mb-3">
                             <div class="card">
-                                <img src="{{ asset('img/sun1.jpg') }}" class="card-img-top" alt="...">
+                               <div class="embed-responsive embed-responsive-1by1">
+                                <img src="{{ asset('img/sun4.jpg') }}" class="card-img-top embed-responsive-item" alt="...">
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Fotowoltaika przyszłości</h5>
                                     <p class="card-text">Zobacz jak technologia rozwija się na naszych oczach.</p>

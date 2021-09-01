@@ -20,7 +20,7 @@ class RegisterStep2Controller extends Controller
     
     public function postForm(Request $request)
     {
-        auth()->user()->update($request->only(['biography', 'country_id']));
+        auth()->user()->update($request->all());
         return redirect()->route('home');
     }
     
