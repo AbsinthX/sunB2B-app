@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Country;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -26,7 +30,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $countries = Country::all();
+        return view('users.create', compact('countries'));
     }
 
     /**
@@ -35,9 +40,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+       
+    
     public function store(Request $request)
-    {
-        //
+    {     
+               
+        
+        $user = new User($request->all());
+        $user['password'] = Hash::make($user['password']);
+        $user->save();
+        return redirect(route('users.index'));
     }
 
     /**
@@ -46,9 +58,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('users.show', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -57,9 +71,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $countries = Country::all();
+        return view('users.edit', [
+            'user' => $user
+        ], compact('countries'));
     }
 
     /**
@@ -69,9 +86,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->fill($request->all());
+        $user->save();
+        
+        return redirect(route('users.index'));
     }
 
     /**
@@ -88,4 +108,5 @@ class UserController extends Controller
             'status' => 'success'
         ]);
     }
+    
 }

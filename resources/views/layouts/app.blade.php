@@ -35,13 +35,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/calculator">{{ __('Kalkulator') }}</a>
+                            <a class="nav-link" href="{{ route('news') }}">{{ __('Aktualności') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/users/list">{{ __('Użytkownicy') }}</a>
+                            <a class="nav-link" href="{{ route('calculator') }}">{{ __('Kalkulator') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/products/list">{{ __('Produkty') }}</a>
+                            <a class="nav-link" href="{{ route('users.index') }}">{{ __('Użytkownicy') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products.index') }}">{{ __('Produkty') }}</a>
                         </li>
                     </ul>
 
@@ -67,9 +70,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    
-                                    <a class="dropdown-item" href="/users/list"> Użytkownicy </a>
-                                    <a class="dropdown-item" href="/products/list"> Produkty </a>
+                                    <a class="dropdown-item" href="{{ route('news') }}">{{ __('Aktualności') }}</a>
+                                    <a class="dropdown-item" href="{{ route('calculator') }}">{{ __('Kalkulator') }} </a>
+                                    <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Użytkownicy') }} </a>
+                                    <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('Produkty') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

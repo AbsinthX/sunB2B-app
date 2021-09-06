@@ -2,6 +2,19 @@
 
 @section('content')
 <div class="container">
+    
+    <div class="row">
+    <div class="col-6"> <h1>Lista użytkowników </h1> </div>
+    
+    <div class="col-6">
+        <a class="float-right" href="{{ route('users.create') }}">
+            <button type="button" class="btn btn-primary">Dodaj użytkownika</button>
+        </a>
+    </div>
+    
+    
+    
+    
 <table class="table table-hover">
   <thead>
     <tr>
@@ -30,6 +43,14 @@
          {{ $user -> country->name }}
       </td> 
       <td class="align-middle">
+          <a href="{{route('users.show', $user -> id ) }}">
+              <button class="btn btn-success btn-sm">P</button>
+          </a>
+          
+          
+          <a href="{{route('users.edit', $user -> id ) }}">
+              <button class="btn btn-primary btn-sm">E</button>
+          </a>
           <button class="btn btn-danger btn-sm delete" data-id="{{$user -> id}}"> 
               X
           </button>

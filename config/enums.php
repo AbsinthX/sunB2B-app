@@ -2,6 +2,7 @@
 
 return [
     'states' => [
+        'poza Polską',
         'dolnośląskie',
         'kujawsko-pomorskie',
         'lubelskie',
