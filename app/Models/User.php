@@ -53,4 +53,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Country');
     }
     
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+    
 }

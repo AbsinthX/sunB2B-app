@@ -3,63 +3,92 @@
 
 @section('content')
 
- <div class="container">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+
+
                 <div class="card-header">{{ __('Kalkulator') }}</div>
 
                 <div class="card-body">
-                        
-           <p class="text-center">Rodzaj konstrukcji:</p>
-           
-           <div class="d-flex justify-content-center">
-               
-               
-            <form action="wyliczone" method="GET">
-            <select id="konstrukcja" name="konstrukcja">
-            <option value="dach">Dachówka</option>
-            <option value="blacha">Blacha</option>
-            <option value="trapez">Trapez</option>
-            </select>
-            
-                <p>Liczba rzędów:</p>
-             <select id="rzedy" name="rzedy">
-            <?php
-    for ($i=1; $i<=100; $i++)
-    {
-        ?>
-            <option value="<?php echo $i;?>"><?php echo $i;?></option>
-        <?php
-    }
-?>
-            </select>   
-                
-                <p>Liczba paneli w rzędzie:</p>
-                <select id="panele" name="panelewrzedzie">
-            <?php
-    for ($i=1; $i<=100; $i++)
-    {
-        ?>
-            <option value="<?php echo $i;?>"><?php echo $i;?></option>
-        <?php
-    }
-?>
-            </select>  
-                
-                <p> Kolor: </p>
-                <select id="kolor" name="kolor">
-            <option value="surowe">Surowe</option>
-            <option value="czarne">Czarne</option>
-            </select>
-                
-                
-                <br><br><br>               
-                 <input type="submit" value="Oblicz">
-                
-            </form>
-            
-                   </div> 
+                    <div class="col d-flex justify-content-center">
+                        <div class="content" >
+                            
+                            <form method="GET" action="{{ route('calculator.calculate') }}">
+                             <div class="mb-3">
+                            <label for="name" class="col-form-label">{{ __('Rodzaj konstrukcji: ') }}</label>
+                            <br>
+                            <div class="row-md-6">
+                                <select name="construction" id="construction" class="form-control @error('construction') is-invalid @enderror">
+                                    <option value="blacha">Dach z dachówką</option>
+                                    <option value="trapez">Dach z blachodawchówki</option>
+                                    <option value="trójkąt">Konstrukcja na trójkątach regulowanych</option>
+                                </select>
+
+                                @error('construction')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                                
+                                
+                                <div class="mb-3">
+                            <label for="rzedy" class="col-form-label">{{ __('Liczba rzędów paneli: ') }}</label>
+                            <br>
+                            <div class="row-md-6">
+                                <select name="rzedy" id="rzedy" class="form-control @error('rzedy') is-invalid @enderror">
+                                    <?php
+                                    for ($i = 1; $i <= 100; $i++) {
+                                        ?>
+                                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+
+                                @error('rzedy')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                                <div class="mb-3">
+                            <label for="panele" class="col-form-label">{{ __('Liczba paneli: ') }}</label>
+                            <br>
+                            <div class="row-md-6">
+                                <select name="panele" id="panele" class="form-control @error('panele') is-invalid @enderror">
+                                    <?php
+                                    for ($i = 1; $i <= 100; $i++) {
+                                        ?>
+                                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+
+                                @error('panele')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Wylicz') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

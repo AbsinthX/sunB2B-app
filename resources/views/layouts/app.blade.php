@@ -46,6 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('products.index') }}">{{ __('Produkty') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('orders.index') }}">{{ __('Zamówienia') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -74,6 +77,7 @@
                                     <a class="dropdown-item" href="{{ route('calculator') }}">{{ __('Kalkulator') }} </a>
                                     <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Użytkownicy') }} </a>
                                     <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('Produkty') }}</a>
+                                    <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('Zamówienia') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

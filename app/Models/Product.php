@@ -15,4 +15,9 @@ class Product extends Model
         'amount',
         'price'
     ];
+    
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class)->withTimestamps();
+    }
 }

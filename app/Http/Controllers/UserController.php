@@ -44,7 +44,12 @@ class UserController extends Controller
     
     public function store(Request $request)
     {     
-               
+        $validated = $request->validate([
+        'name' => 'required|max:255',
+        'email' => 'required|unique:users',
+        'nip' => 'required|unique:users',
+        'password' => 'required|confirmed'
+    ]);
         
         $user = new User($request->all());
         $user['password'] = Hash::make($user['password']);
@@ -108,5 +113,7 @@ class UserController extends Controller
             'status' => 'success'
         ]);
     }
+    
+    
     
 }

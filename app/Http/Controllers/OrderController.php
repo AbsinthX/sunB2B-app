@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
-class ProductController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index', [
-            'products' => Product::paginate(10)
+        return view('orders.index', [
+            'orders' => Order::paginate(10)
         ]);
     }
 
@@ -27,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('orders.create');
     }
 
     /**
@@ -38,35 +37,34 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-         $product = new Product($request->all());
-         $product->save();
-         return redirect(route('products.index'));
+        $order = new Order($request->all());
+        $order->save();
+        return redirect(route('orders.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Order $order)
     {
-        return view('products.show', [
-            'product' => $product
+        return view('orders.show', [
+            'order' => $order
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  @param  \App\Models\Product  $product
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Order $order)
     {
-        
-        return view('products.edit', [
-            'product' => $product
+        return view('orders.edit', [
+            'order' => $order
         ]);
     }
 
@@ -74,28 +72,32 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Order $order)
     {
-        $product->fill($request->all());
-        $product->save();
-        return redirect(route('products.index'));
+        $order->fill($request->all());
+        $order->save();
+        return redirect(route('orders.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-{
-            $product = Product::find($id);
-            $product->orders()->detach();
-            $product->delete();
+    {
+        $order = Order::find($id);
+            $order->products()->detach();
+            $order->delete();
             return response()->json([
             'status' => 'success']);
-}
+    }
+    
+    
+    
+    
 }
