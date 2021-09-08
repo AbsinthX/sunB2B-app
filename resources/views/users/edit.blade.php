@@ -118,13 +118,13 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Pańśtwo') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Państwo') }}</label>
 
                             <div class="col-md-6">
                                 <select name="country_id" class="form-control @error('country_id') is-invalid @enderror">
-                                    <option value="{{ $user->country_id }}" {!! old('country_id') == $user->country_id ? 'selected="selected"' : '' !!}>{{ $user ->country->name }}</option>
+                                    <option value="{{ $user->country_id ?? "" }}" {!! old('country_id') == $user->country_id ? 'selected="selected"' : '' !!}>{{ $user ->country->name ?? "" }}</option>
                                     @foreach ($countries as $country)
-                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                        <option value="{{ $country->id }}">{{ $country->name ?? "" }}</option>
                                     @endforeach
                                 </select>
 

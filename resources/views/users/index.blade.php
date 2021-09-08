@@ -40,7 +40,7 @@
          {{ $user -> postal_code }}
          {{ $user -> city }}<br>
          {{ $user -> state }}<br>
-         {{ $user -> country->name }}
+         {{ $user -> country->name ?? ""}}
       </td> 
       <td class="align-middle">
           <a href="{{route('users.show', $user -> id ) }}">

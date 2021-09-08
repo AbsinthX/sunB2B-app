@@ -72,7 +72,7 @@
                             <label for="country_id" class="col-md-4 col-form-label text-md-right">{{ __('Państwo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="state" type="text" maxlength="500" class="form-control" name="country_id" value="{{ $user -> country->name }}" required autocomplete="country_id" disabled>
+                                <input id="state" type="text" maxlength="500" class="form-control" name="country_id" value="{{ $user -> country->name ?? ""}}" required autocomplete="country_id" disabled>
                                 
                             </div>
                         </div>
