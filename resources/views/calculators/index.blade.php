@@ -21,8 +21,8 @@
                             <br>
                             <div class="row-md-6">
                                 <select name="construction" id="construction" class="form-control @error('construction') is-invalid @enderror">
-                                    <option value="blacha">Dach z dachówką</option>
-                                    <option value="trapez">Dach z blachodawchówki</option>
+                                    <option value="dachówka">Dach z dachówką</option>
+                                    <option value="blacha">Dach z blachodawchówki</option>
                                     <option value="trójkąt">Konstrukcja na trójkątach regulowanych</option>
                                 </select>
 
@@ -36,10 +36,10 @@
                                 
                                 
                                 <div class="mb-3">
-                            <label for="rzedy" class="col-form-label">{{ __('Liczba rzędów paneli: ') }}</label>
+                            <label for="rzędy" class="col-form-label">{{ __('Liczba rzędów paneli: ') }}</label>
                             <br>
                             <div class="row-md-6">
-                                <select name="rzedy" id="rzedy" class="form-control @error('rzedy') is-invalid @enderror">
+                                <select name="rzędy" id="rzedy" class="form-control @error('rzędy') is-invalid @enderror">
                                     <?php
                                     for ($i = 1; $i <= 100; $i++) {
                                         ?>
@@ -49,7 +49,7 @@
                                     ?>
                                 </select>
 
-                                @error('rzedy')
+                                @error('rzędy')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

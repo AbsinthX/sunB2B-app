@@ -13,7 +13,7 @@
     
 </div>
 <div class="row">
-<table class="table table-borderless">
+<table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
