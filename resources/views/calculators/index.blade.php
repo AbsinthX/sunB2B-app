@@ -21,9 +21,10 @@
                             <br>
                             <div class="row-md-6">
                                 <select name="construction" id="construction" class="form-control @error('construction') is-invalid @enderror">
-                                    <option value="dachówka">Dach z dachówką</option>
-                                    <option value="blacha">Dach z blachodawchówki</option>
-                                    <option value="trójkąt">Konstrukcja na trójkątach regulowanych</option>
+                                    <option value="Dach z dachówką">Dach z dachówką</option>
+                                    <option value="Dach z blachodawchówki">Dach z blachodawchówki</option>
+                                    <option value="Dach z blachą trapezową">Dach z blachą trapezową</option>
+                                    <option value="Trójkąty z balastem">Trójkąty z balastem</option>
                                 </select>
 
                                 @error('construction')

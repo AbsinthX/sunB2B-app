@@ -121,7 +121,13 @@ class ProductsTableSeeder extends Seeder
                 'name'       => 'Trójkąt montażowy',
                 'description' => 'Trójkąt montażowy',
                 'amount' => '1000',
-                'price' => '36',
+                'price' => '45',
+            ],
+            [
+                'name'       => 'Bloczek balastowy 16kg',
+                'description' => 'Bloczek balastowy 16kg',
+                'amount' => '1000',
+                'price' => '3',
             ],
             
             

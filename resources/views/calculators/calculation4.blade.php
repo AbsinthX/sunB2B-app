@@ -45,45 +45,66 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>{{ $products[2]->name }}</td>
-                                                <td><input disabled style="border: none;    background-color: transparent;" id="a1" type="number" class="form-control" value="{{ $products[2]->price }}" /></td>
+                                                <td>{{ $products[0]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a1" type="number" class="form-control" value="{{ $products[0]->price }}" /></td>
                                                 <td> <input id="b1" oninput="przelicz(1)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[1] }}" /> </td>
                                                 <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c1" type="number" input="number" step="0.01"class="form-control" value="" /></td>                                                
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
-                                                <td>{{ $products[3]->name }}</td>
-                                                <td><input disabled style="border: none;    background-color: transparent;" id="a2" type="number" class="form-control" value="{{ $products[3]->price }}" /></td>
+                                                <td>{{ $products[2]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a2" type="number" class="form-control" value="{{ $products[2]->price }}" /></td>
                                                 <td> <input id="b2" oninput="przelicz(2)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[2] }}" /> </td>
                                                 <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c2" type="number" input="number" step="0.01"class="form-control" value="" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">3</th>
-                                                <td>{{ $products[7]->name }}</td>
-                                                <td><input disabled style="border: none;    background-color: transparent;" id="a3" type="number" class="form-control" value="{{ $products[7]->price }}" /></td>
+                                                <td>{{ $products[3]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a3" type="number" class="form-control" value="{{ $products[3]->price }}" /></td>
                                                 <td> <input id="b3" oninput="przelicz(3)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[3] }}" /> </td>
                                                 <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c3" type="number" input="number" step="0.01"class="form-control" value="" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">4</th>
-                                                <td>{{ $products[9]->name }}</td>
-                                                <td><input disabled style="border: none;    background-color: transparent;" id="a4" type="number" class="form-control" value="{{ $products[9]->price }}" /></td>
+                                                <td>{{ $products[7]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a4" type="number" class="form-control" value="{{ $products[7]->price }}" /></td>
                                                 <td> <input id="b4" oninput="przelicz(4)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[4] }}" /> </td>
                                                 <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c4" type="number" input="number" step="0.01"class="form-control" value="" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">5</th>
-                                                <td>{{ $products[14]->name }}</td>
-                                                <td><input disabled style="border: none;    background-color: transparent;" id="a5" type="number" class="form-control" value="{{ $products[14]->price }}" /></td>
+                                                <td>{{ $products[9]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a5" type="number" class="form-control" value="{{ $products[9]->price }}" /></td>
                                                 <td> <input id="b5" oninput="przelicz(5)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[5] }}" /> </td>
                                                 <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c5" type="number" input="number" step="0.01"class="form-control" value="" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">6</th>
-                                                <td>{{ $products[15]->name }}</td>
-                                                <td><input disabled style="border: none;    background-color: transparent;" id="a6" type="number" class="form-control" value="{{ $products[15]->price }}" /></td>
+                                                <td>{{ $products[11]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a6" type="number" class="form-control" value="{{ $products[11]->price }}" /></td>
                                                 <td> <input id="b6" oninput="przelicz(6)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[6] }}" /> </td>
                                                 <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c6" type="number" input="number" step="0.01"class="form-control" value="" /></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>{{ $products[13]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a7" type="number" class="form-control" value="{{ $products[13]->price }}" /></td>
+                                                <td> <input id="b7" oninput="przelicz(7)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[7] }}" /> </td>
+                                                <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c7" type="number" input="number" step="0.01"class="form-control" value="" /></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">8</th>
+                                                <td>{{ $products[17]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a8" type="number" class="form-control" value="{{ $products[17]->price }}" /></td>
+                                                <td> <input id="b8" oninput="przelicz(8)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[8] }}" /> </td>
+                                                <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c8" type="number" input="number" step="0.01"class="form-control" value="" /></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">9</th>
+                                                <td>{{ $products[18]->name }}</td>
+                                                <td><input disabled style="border: none;    background-color: transparent;" id="a9" type="number" class="form-control" value="{{ $products[18]->price }}" /></td>
+                                                <td> <input id="b9" oninput="przelicz(9)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[9] }}" /> </td>
+                                                <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c9" type="number" input="number" step="0.01"class="form-control" value="" /></td>
                                             </tr>
                                             
                                             <th scope="row"></th>

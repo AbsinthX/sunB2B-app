@@ -21,9 +21,9 @@ class CalculatorController extends Controller
         
         
         if ($calculation[0]=='1') return view('calculators.calculation1', compact('calculation','products'));
-        else if ($calculation=='2') return view('calculators.calculation2', compact('calculation'));
-        else return view('calculators.calculation3', compact('calculation'));
-        
+        else if ($calculation[0]=='2') return view('calculators.calculation2', compact('calculation','products'));
+        else if ($calculation[0]=='3') return view('calculators.calculation3', compact('calculation','products'));
+        else return view('calculators.calculation4', compact('calculation','products'));
     }
     
 }
