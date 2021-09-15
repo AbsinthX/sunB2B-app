@@ -8,6 +8,8 @@ use \Illuminate\Database\Eloquent\Relations\Pivot;
 class OrderProduct extends Pivot
 {
     use HasFactory;
-    
-    
+
+    protected $fillable = [
+        'amount',
+    ];
 }

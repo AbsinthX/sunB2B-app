@@ -19,5 +19,15 @@ return [
         'warmińsko-mazurskie',
         'wielkopolskie',
         'zachodniopomorskie'
+    ],
+    'status' => [
+        'Przychodzące',
+        'Anulowane',
+        'Zrealizowane',
+        'Przyjęte do realizacji',
+        'Zafakturowane',
+        'Zakończone',
+        'Wysłane'
+
     ]
 ];

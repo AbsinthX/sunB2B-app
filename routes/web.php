@@ -33,7 +33,7 @@ Route::post('register-step2', [RegisterStep2Controller::class, 'postForm'])->nam
 
 
 Route::get('/users/list', [UserController::class, 'index'])->name('users.index');
-Route::delete('/users/{id}', [UserController::class, 'destroy']); 
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
 Route::get('/users/list', [UserController::class, 'index'])->name('users.index');
 Route::post('/users/list', [UserController::class, 'store'])->name('users.store');
@@ -63,6 +63,9 @@ Route::get('/orders/edit/{order}', [OrderController::class, 'edit'])->name('orde
 
 Route::get('/calculator', [CalculatorController::class, 'index'])->name('calculator');
 Route::get('/calculator/calculate', [CalculatorController::class, 'calculate'])->name('calculator.calculate');
+Route::post('/calculator/order1', [CalculatorController::class, 'order1'])->name('calculator.order1');
+
+
 
 });
 
