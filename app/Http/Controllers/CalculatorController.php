@@ -26,6 +26,17 @@ class CalculatorController extends Controller
         else return view('calculators.calculation4', compact('calculation','products'));
     }
 
+    public function summary(Request $request, CalculatorsService $service)
+    {
+        $products = Product::all();
+        $sum = $request->all();
+
+
+        return view('calculators.summary', compact('sum','products'));
+    }
+
+
+
     public function order1(Request $request, CalculatorsService $service)
     {
         $order1 = (new CalculatorsService())->order1($request);

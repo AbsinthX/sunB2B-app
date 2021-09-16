@@ -534,6 +534,29 @@ pre code {
   overflow-y: scroll;
 }
 
+.container1 {
+    display: grid;
+    grid-template-columns: 1.8fr 0.2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "Kalkulacja Adres Adres"
+    "Kalkulacja Adres Adres"
+    "Kalkulacja Uwagi Uwagi";
+}
+
+.Kalkulacja { grid-area: Kalkulacja; }
+
+.Adres { grid-area: Adres; }
+
+.Uwagi { grid-area: Uwagi; }
+
+
+
+
+
+
 .container,
 .container-fluid,
 .container-xl,
@@ -10001,4 +10024,6 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+
+
 }

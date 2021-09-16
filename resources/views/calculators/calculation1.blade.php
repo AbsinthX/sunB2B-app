@@ -30,7 +30,7 @@
                                             </tr>
                                         </thead>
                              </table>
-                            <form id="form1" class="form-horizontal" action="{{ route('calculator.order1') }}" method="POST">
+                            <form id="form1" class="form-horizontal" action="{{ route('calculator.summary') }}" method="POST">
                                 <INPUT hidden name='construction' VALUE={{ $_GET['construction'] }}>
                                 <INPUT hidden name='rzędy' VALUE={{ $_GET['rzędy'] }}>
                                 <INPUT hidden name='panele' VALUE={{ $_GET['panele'] }}>
