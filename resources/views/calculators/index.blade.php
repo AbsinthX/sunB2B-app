@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <div class="col d-flex justify-content-center">
                         <div class="content" >
-                            
+
                             <form method="GET" action="{{ route('calculator.calculate') }}">
                              <div class="mb-3">
                             <label for="name" class="col-form-label">{{ __('Rodzaj konstrukcji: ') }}</label>
@@ -34,8 +34,8 @@
                                 @enderror
                             </div>
                         </div>
-                                
-                                
+
+
                                 <div class="mb-3">
                             <label for="rzędy" class="col-form-label">{{ __('Liczba rzędów paneli: ') }}</label>
                             <br>

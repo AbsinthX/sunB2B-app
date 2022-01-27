@@ -17,10 +17,11 @@ class CalculatorController extends Controller
     public function calculate(Request $request, CalculatorsService $service)
     {
         $products = Product::all();
-        $calculation = (new CalculatorsService())->calculate($request);
+        $temp = (new CalculatorsService())->calculate($request);
+        $konstrukcja = $temp[1];
+        $calculation = $temp[0];
 
-
-        if ($calculation[0]=='1') return view('calculators.calculation1', compact('calculation','products'));
+        if ($konstrukcja=='1') return view('calculators.calculation1', compact('calculation','products'));
         else if ($calculation[0]=='2') return view('calculators.calculation2', compact('calculation','products'));
         else if ($calculation[0]=='3') return view('calculators.calculation3', compact('calculation','products'));
         else return view('calculators.calculation4', compact('calculation','products'));

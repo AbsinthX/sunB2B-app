@@ -14,12 +14,12 @@ public function calculate(Request $request)
  {
 
     if ($_GET['construction'] == 'Dach z dachówką') {
-            $tbl = array('1');
+            $tbl = [];
             //$_GET['1'] = Product::find(1)->name;
             $panele = filter_input(INPUT_GET, "panele", FILTER_VALIDATE_INT);
             $rzedy = filter_input(INPUT_GET, "rzędy", FILTER_VALIDATE_INT);
 
-            $tbl[] = $profil = ceil(1.1 * $panele);
+            $tbl[] = [1,$profil = ceil(1.1 * $panele)];
             //echo $profil." profili"."<br>";
             $tbl[] = $klemyk = ceil(1.1 * $rzedy * 4);
             //echo $klemyk." klem końcowych"."<br>";
@@ -42,7 +42,7 @@ public function calculate(Request $request)
             $tbl[] = $wkret = ceil(1.1 * $panele * 2.5 * 2);
             //echo $wkret." wkrętów do drewna"."<br>";
             //var_dump($tbl);
-            return $tbl;
+            return array($tbl,"1");
         } else if ($_GET['construction'] == 'Dach z blachodawchówki') {
 
             $tbl = array('2');

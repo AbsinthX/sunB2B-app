@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <div class="card w-100">
 
-
+{{var_dump($calculation)}}
                 <div class="card-header">{{ __('Kalkulacja') }}</div>
 
                 <div class="card-body">
@@ -31,10 +31,15 @@
                                         </thead>
                              </table>
                             <form id="form1" class="form-horizontal" action="{{ route('calculator.summary') }}" method="POST">
-                                <INPUT hidden name='construction' VALUE={{ $_GET['construction'] }}>
+                                <INPUT hidden name='konstrukcja' VALUE= "{{ $_GET['construction'] }}">
                                 <INPUT hidden name='rzędy' VALUE={{ $_GET['rzędy'] }}>
                                 <INPUT hidden name='panele' VALUE={{ $_GET['panele'] }}>
 
+                                <?php
+                                $data=serialize($calculation);
+                                $encoded=htmlentities($data);
+                                echo '<input type="hidden" name="kalkulacja" value="'.$encoded.'">';
+                                ?>
                                 <div class="row">
                                     <table id="myTable" class="table table-hover">
                                         <thead>
@@ -51,7 +56,7 @@
                                                 <th scope="row">1</th>
                                                 <td>{{ $products[0]->name }}</td>
                                                 <td><input disabled style="border: none;    background-color: transparent;" id="a1" type="number" class="form-control" value="{{ $products[0]->price }}" /></td>
-                                                <td> <input id="b1" name='1' oninput="przelicz(1)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[1] }}" /> </td>
+                                                <td> <input id="b1" name='1' oninput="przelicz(1)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[0][1] }}" /> </td>
                                                 <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c1" type="number" input="number" step="0.01"class="form-control" value="" /></td>
                                             </tr>
                                             <tr>
@@ -121,7 +126,7 @@
                                                 <th scope="row">11</th>
                                                 <td>{{ $products[16]->name }}</td>
                                                 <td><input disabled style="border: none;    background-color: transparent;" id="a11" type="number" class="form-control" value="{{ $products[16]->price }}" /></td>
-                                                <td> <input id="b11" name='11' oninput="przelicz(11)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[11] }}" /> </td>
+                                                <td> <input id="b11" name='11' oninput="przelicz(11)" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" MIN="0" MAX="1000" STEP="1"  class="form-control" value="{{ $calculation[10] }}" /> </td>
                                                 <td><input disabled class="cena" style="border: none;    background-color: transparent;" id="c11" type="number" input="number" step="0.01"class="form-control" value="" /></td>
                                             </tr>
                                             <tr>

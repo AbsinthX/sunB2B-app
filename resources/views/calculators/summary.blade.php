@@ -11,8 +11,15 @@
                     <div class="card-header">{{ __('Kalkulacja') }}</div>
 
                     <div class="card-body">
-
-
+<?php
+                        $kalk=unserialize($sum['kalkulacja']);
+                        ?>
+{{var_dump($sum)}}
+    <br>
+    <br>
+    <br>
+    {{var_dump($kalk)}}
+                        <br>
 
                             <div class="container1">
                                 <div class="Kalkulacja px-md-4">
@@ -96,6 +103,7 @@
                                                 <td>{{$sum['11']}}</td>
                                                 <td>{{$sum['11'] * $products[16]->price }}</td>
                                             </tr>
+
                                             <tr>
                                                 <th scope="row"></th>
                                                 <td></td>
@@ -181,6 +189,7 @@
                                         <a class="float-right">
                                             <button type="submit" class="btn btn-primary btn-lg">Zamów</button>
                                         </a>
+
 
                                     </div>
                                 </div>
