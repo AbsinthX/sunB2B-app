@@ -21,96 +21,97 @@ public function calculate(Request $request)
 
             $tbl[] = [1,$profil = ceil(1.1 * $panele)];
             //echo $profil." profili"."<br>";
-            $tbl[] = $klemyk = ceil(1.1 * $rzedy * 4);
+            $tbl[] = [3,$klemyk = ceil(1.1 * $rzedy * 4)];
             //echo $klemyk." klem końcowych"."<br>";
-            $tbl[] = $klemys = ceil(1.1 * ($panele * 2 - $rzedy * 2));
+            $tbl[] = [4,$klemys = ceil(1.1 * ($panele * 2 - $rzedy * 2))];
             //echo $klemys." klem środkowych"."<br>";
-            $tbl[] = $haki = ceil(1.1 * $panele * 2.5);
+            $tbl[] = [5,$haki = ceil(1.1 * $panele * 2.5)];
             //echo $haki." haków regulowanych podwójnych typu Vario "."<br>";
-            $tbl[] = $zaslepki = ceil(1.1 * $rzedy * 4);
+            $tbl[] = [6,$zaslepki = ceil(1.1 * $rzedy * 4)];
             //echo $zaslepki." zaślepek plastikowych"."<br>";
-            $tbl[] = $srubimb = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)));
+            $tbl[] = [8,$srubimb = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)))];
             //echo $srubimb." śrub imbusowych"."<br>";
-            $tbl[] = $wpust = ceil($srubimb);
+            $tbl[] = [10,$wpust = ceil($srubimb)];
             //echo $wpust." wpustów uniwersalnych"."<br>";
-            $tbl[] = $srubamlot = ceil($haki);
+            $tbl[] = [12,$srubamlot = ceil($haki)];
             //echo $srubamlot." śrub młotkowych"."<br>";
-            $tbl[] = $lacznik = ceil(1.1 * $panele * 2);
+            $tbl[] = [13,$lacznik = ceil(1.1 * $panele * 2)];
             //echo $lacznik." łączników do szyn"."<br>";
-            $tbl[] = $nakretka = ceil($haki);
+            $tbl[] = [14,$nakretka = ceil($haki)];
             //echo $nakretka." nakrętek kołnierzowych"."<br>";
-            $tbl[] = $wkret = ceil(1.1 * $panele * 2.5 * 2);
+            $tbl[] = [17,$wkret = ceil(1.1 * $panele * 2.5 * 2)];
             //echo $wkret." wkrętów do drewna"."<br>";
             //var_dump($tbl);
             return array($tbl,"1");
         } else if ($_GET['construction'] == 'Dach z blachodawchówki') {
 
-            $tbl = array('2');
+            $tbl = [];
             //$_GET['1'] = Product::find(1)->name;
             $panele = filter_input(INPUT_GET, "panele", FILTER_VALIDATE_INT);
             $rzedy = filter_input(INPUT_GET, "rzędy", FILTER_VALIDATE_INT);
             //echo "robimy blachę "."<br>";
-            $tbl[] = $profil = ceil(1.1 * $panele);
+            $tbl[] = [1,$profil = ceil(1.1 * $panele)];
             //echo $profil." profili"."<br>";
-            $tbl[] = $dwugwint = ceil(1.1 * $panele * 2.5);
+            $tbl[] = [2,$dwugwint = ceil(1.1 * $panele * 2.5)];
             //echo $dwugwint." śrub dwugwintowych"."<br>";
-            $tbl[] = $klemyk = ceil(1.1 * $rzedy * 4);
+            $tbl[] = [3,$klemyk = ceil(1.1 * $rzedy * 4)];
             //echo $klemyk." klem końcowych"."<br>";
-            $tbl[] = $klemys = ceil(1.1 * ($panele * 2 - $rzedy * 2));
+            $tbl[] = [4,$klemys = ceil(1.1 * ($panele * 2 - $rzedy * 2))];
             //echo $klemys." klem środkowych"."<br>";
-            $tbl[] = $zaslepki = ceil(1.1 * $rzedy * 4);
+            $tbl[] = [6,$zaslepki = ceil(1.1 * $rzedy * 4)];
             //echo $zaslepki." zaślepek plastikowych"."<br>";
-            $tbl[] = $srubimb = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)));
+            $tbl[] = [8,$srubimb = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)))];
             //echo $srubimb." śrub imbusowych"."<br>";
-            $tbl[] = $wpust = ceil($srubimb);
+            $tbl[] = [10,$wpust = ceil($srubimb)];
             //echo $wpust." wpustów uniwersalnych"."<br>";
-            $tbl[] = $adapter = ceil($dwugwint);
+            $tbl[] = [11,$adapter = ceil($dwugwint)];
             //echo $adapter." adapterów montażowych"."<br>";
-            $tbl[] = $srubamlot = ceil($dwugwint);
+            $tbl[] = [12,$srubamlot = ceil($dwugwint)];
             //echo $srubamlot." śrub młotkowych"."<br>";
-            $tbl[] = $lacznik = ceil(1.1 * $panele * 2);
+            $tbl[] = [13,$lacznik = ceil(1.1 * $panele * 2)];
             //echo $lacznik." łączników do szyn"."<br>";
-            $tbl[] = $nakretka = ceil($dwugwint);
+            $tbl[] = [14,$nakretka = ceil($dwugwint)];
             //echo $nakretka." nakrętek kołnierzowych"."<br>";
 
-            return $tbl;
+            return array($tbl,"2");
         } else if ($_GET['construction'] == 'Dach z blachą trapezową') {
-            $tbl = array('3');
+            $tbl = [];
             //$_GET['1'] = Product::find(1)->name;
             $panele = filter_input(INPUT_GET, "panele", FILTER_VALIDATE_INT);
             $rzedy = filter_input(INPUT_GET, "rzędy", FILTER_VALIDATE_INT);
 
             //echo "robimy trapez "."<br>";
-            $tbl[] = $klemyk = ceil(1.1 * $rzedy * 4);
+            $tbl[] = [3,$klemyk = ceil(1.1 * $rzedy * 4)];
             //echo $klemyk." klem końcowych"."<br>";
-            $tbl[] = $klemys = ceil(1.1 * ($panele * 2 - $rzedy * 2));
+            $tbl[] = [4,$klemys = ceil(1.1 * ($panele * 2 - $rzedy * 2))];
             //echo $klemys." klem środkowych"."<br>";
-            $tbl[] = $srubimb = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)));
+            $tbl[] = [8,$srubimb = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)))];
             //echo $srubimb." śrub imbusowych"."<br>";
-            $tbl[] = $wpust = ceil($srubimb);
+            $tbl[] = [10,$wpust = ceil($srubimb)];
             //echo $wpust." wpustów uniwersalnych"."<br>";
-            $tbl[] = $mostek = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)));
+            $tbl[] = [15,$mostek = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)))];
             //echo $mostek." mostków podklejanych"."<br>";
-            $tbl[] = $blachowkret = ceil(1.1 * 6 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)));
+            $tbl[] = [16,$blachowkret = ceil(1.1 * 6 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)))];
             //echo $blachowkret." blachowkrętów"."<br>";
-            return $tbl;
+            return array($tbl,"3");
         }
         else {
-            $tbl = array('4');
+            $tbl = [];
+            //$_GET['1'] = Product::find(1)->name;
             $panele = filter_input(INPUT_GET, "panele", FILTER_VALIDATE_INT);
             $rzedy = filter_input(INPUT_GET, "rzędy", FILTER_VALIDATE_INT);
 
-            $tbl[] = $profil = ceil(1.1 * $panele);
-            $tbl[] = $klemyk = ceil(1.1 * $rzedy * 4);
-            $tbl[] = $klemys = ceil(1.1 * ($panele * 2 - $rzedy * 2));
-            $tbl[] = $srubimb = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)));
-            $tbl[] = $wpust = ceil($srubimb);
-            $tbl[] = $srubamlot = ceil($panele*2*1.1*1.1*1.1);
-            $tbl[] = $nakretka = ceil($srubamlot);
-            $tbl[] = $trojkat = ceil($panele*1.1*1.1*1.1);
-            $tbl[] = $balast = ceil($panele*4);
+            $tbl[] = [1,$profil = ceil(1.1 * $panele)];
+            $tbl[] = [3,$klemyk = ceil(1.1 * $rzedy * 4)];
+            $tbl[] = [4,$klemys = ceil(1.1 * ($panele * 2 - $rzedy * 2))];
+            $tbl[] = [8,$srubimb = ceil(1.1 * (($panele * 2 - $rzedy * 2) + ($rzedy * 4)))];
+            $tbl[] = [10,$wpust = ceil($srubimb)];
+            $tbl[] = [12,$srubamlot = ceil($panele*2*1.1*1.1*1.1)];
+            $tbl[] = [14,$nakretka = ceil($srubamlot)];
+            $tbl[] = [18,$trojkat = ceil($panele*1.1*1.1*1.1)];
+            $tbl[] = [19,$balast = ceil($panele*4)];
 
-            return $tbl;
+            return array($tbl,"4");
         }
     }
 

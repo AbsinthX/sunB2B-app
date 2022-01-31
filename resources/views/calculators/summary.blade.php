@@ -11,16 +11,6 @@
                     <div class="card-header">{{ __('Kalkulacja') }}</div>
 
                     <div class="card-body">
-<?php
-                        $kalk=unserialize($sum['kalkulacja']);
-                        ?>
-{{var_dump($sum)}}
-    <br>
-    <br>
-    <br>
-    {{var_dump($kalk)}}
-                        <br>
-
                             <div class="container1">
                                 <div class="Kalkulacja px-md-4">
                                     <div class="card-header">{{ __('Produkty') }}</div>
@@ -37,72 +27,17 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>{{ $products[0]->name }}</td>
-                                                <td>{{$sum['1']}}</td>
-                                                <td>{{$sum['1'] * $products[0]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>{{ $products[2]->name }}</td>
-                                                <td>{{$sum['2']}}</td>
-                                                <td>{{$sum['2'] * $products[2]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>{{ $products[3]->name }}</td>
-                                                <td>{{$sum['3']}}</td>
-                                                <td>{{$sum['3'] * $products[3]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>{{ $products[4]->name }}</td>
-                                                <td>{{$sum['4']}}</td>
-                                                <td>{{$sum['4'] * $products[4]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>{{ $products[5]->name }}</td>
-                                                <td>{{$sum['5']}}</td>
-                                                <td>{{$sum['5'] * $products[5]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">6</th>
-                                                <td>{{ $products[7]->name }}</td>
-                                                <td>{{$sum['6']}}</td>
-                                                <td>{{$sum['6'] * $products[7]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">7</th>
-                                                <td>{{ $products[9]->name }}</td>
-                                                <td>{{$sum['7']}}</td>
-                                                <td>{{$sum['7'] * $products[9]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">8</th>
-                                                <td>{{ $products[11]->name }}</td>
-                                                <td>{{$sum['8']}}</td>
-                                                <td>{{$sum['8'] * $products[11]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">9</th>
-                                                <td>{{ $products[12]->name }}</td>
-                                                <td>{{$sum['9']}}</td>
-                                                <td>{{$sum['9'] * $products[12]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">10</th>
-                                                <td>{{ $products[13]->name }}</td>
-                                                <td>{{$sum['10']}}</td>
-                                                <td>{{$sum['10'] * $products[13]->price }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">11</th>
-                                                <td>{{ $products[16]->name }}</td>
-                                                <td>{{$sum['11']}}</td>
-                                                <td>{{$sum['11'] * $products[16]->price }}</td>
-                                            </tr>
+
+                                            @foreach($sum['kalkulacja'] as $kalk)
+                                                <tr>
+                                                    <th scope="row">{{$loop->iteration}}</th>
+                                                    <td>{{$products[$kalk['id']-1]->name}}</td>
+                                                    <td>{{ $kalk['ilosc'] }}</td>
+                                                    <td>{{$kalk['ilosc'] * $products[$kalk['id']-1]->price  }}</td>
+                                                </tr>
+
+
+                                            @endforeach
 
                                             <tr>
                                                 <th scope="row"></th>
@@ -125,11 +60,16 @@
 
                                         <form class="form-horizontal">
                                             <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label><input id="more" type="checkbox"> Podaj inny adres dostawy</label>
+                                                </div>
+
+                                                <div id="moreField" style="display:none;">
+
                                                 <label class="col-4 col-form-label" for="name">Odbiorca</label>
                                                 <div class="col-8">
                                                     <input id="name" name="name" type="text" class="form-control" required="required">
                                                 </div>
-                                            </div>
                                             <div class="form-group">
                                                 <label for="street" class="col-4 col-form-label">Ulica</label>
                                                 <div class="col-8">
@@ -154,14 +94,18 @@
                                                     <input id="state" name="state" type="text" class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="offset-4 col-8">
-                                                    <button name="submit" type="submit" class="btn btn-primary">Zapisz</button>
                                                 </div>
-                                            </div>
+
+                                                <div class="form-group">
+                                                    <label for="state" class="col-4 col-form-label">Uwagi</label>
+                                                    <div class="col-8">
+                                                        <textarea class="form-control" id="info" name="info" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+
+
+
                                         </form>
-
-
                                     </div>
                                 </div>
 
@@ -200,4 +144,10 @@
         </div>
     </div>
 
+@endsection
+@section('javascript')
+    $("#more").change(function(e){
+    e.preventDefault();
+    $("#moreField").slideToggle();
+    });
 @endsection

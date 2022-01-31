@@ -8,7 +8,10 @@
         <div class="col-md-6">
             <div class="card w-100">
 
-{{var_dump($calculation)}}
+              <?php
+    echo '<pre>' . var_export($calculation, true) . '</pre>';
+    ?>
+
                 <div class="card-header">{{ __('Kalkulacja') }}</div>
 
                 <div class="card-body">
