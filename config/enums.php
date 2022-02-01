@@ -24,6 +24,7 @@ return [
         'Przychodzące',
         'Anulowane',
         'Zrealizowane',
+        'Odroczony termin płatności',
         'Przyjęte do realizacji',
         'Zafakturowane',
         'Zakończone',

@@ -35,12 +35,16 @@ class CalculatorController extends Controller
 
 
 
-    public function order1(Request $request, CalculatorsService $service)
+    public function orderComplete(Request $request, CalculatorsService $service)
     {
-        $order1 = (new CalculatorsService())->order1($request);
+        $products = Product::all();
+        $sum = $request->all();
+        $array = unserialize(base64_decode($_POST['result']));
 
-return 'Sukces';
-        //return view('calculators.order1view', compact('order1'));
+        $temp = (new CalculatorsService())->order($request);
+
+
+        return view('calculators.complete', compact('sum','products','array'));
     }
 
 

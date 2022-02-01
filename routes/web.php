@@ -66,7 +66,7 @@ Route::resource('orders', OrderController::class);
 Route::get('/calculator', [CalculatorController::class, 'index'])->name('calculator');
 Route::post('/ordersummary', [CalculatorController::class, 'summary'])->name('calculator.summary');
 Route::get('/calculator/calculate', [CalculatorController::class, 'calculate'])->name('calculator.calculate');
-Route::post('/calculator/order1', [CalculatorController::class, 'order1'])->name('calculator.order1');
+Route::post('/calculator/ordercomplete', [CalculatorController::class, 'orderComplete'])->name('calculator.orderComplete');
 
 
 

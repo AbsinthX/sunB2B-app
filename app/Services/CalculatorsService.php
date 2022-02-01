@@ -115,29 +115,65 @@ public function calculate(Request $request)
         }
     }
 
-    public function order1(Request $request){
+    public function order(Request $request){
+
+    $array = unserialize(base64_decode($request['result']));
+
+    if ($_POST['typ']=='przedplata') $status = 'Przychodzące';
+    else $status = 'Odroczony termin płatności';
+
+
+    if (isset($_POST['innedane'])){
+        $adres = $_POST['name'].'
+'.
+$_POST['street'].'
+'.
+$_POST['postal_code'].'
+'.
+$_POST['city'].'
+';
+    }
+    else $adres = 'Standardowy';
+
+
         $order = Order::create([
             'owner' => Auth::id(),
-            'status' => 'Przychodzące',
-            'comments' => 'Brak',
-            'value' => $_POST['result1'],
-            'delivery_address' => 'O chuj',
+            'status' => $status,
+            'comments' => $_POST['info'],
+            'value' => $array['result1'],
+            'delivery_address' => $adres,
             'user_id' => Auth::id(),
         ]);
 
-        $order->products()->sync([
-            1 => ['amount' => $_POST['1']],
-            3 => ['amount' => $_POST['2']],
-            4 => ['amount' => $_POST['3']],
-            5 => ['amount' => $_POST['4']],
-            6 => ['amount' => $_POST['5']],
-            8 => ['amount' => $_POST['6']],
-            10 => ['amount' => $_POST['7']],
-            12 => ['amount' => $_POST['8']],
-            13 => ['amount' => $_POST['9']],
-            14 => ['amount' => $_POST['10']],
-            17 => ['amount' => $_POST['11']],
-        ]);
+
+        foreach ($array['kalkulacja'] as $kalk){
+            $order->products()->syncWithoutDetaching([
+                $kalk['id'] => ['amount' => $kalk['ilosc']],
+                ]);
+            };
+
+
+     //   $order->products()->sync([
+//            foreach ($array('kalkulacja') as $kalk){
+//                $kalk[0][0] => ['amount' => $kalk[0][1]],
+//            }
+//        foreach ($array['kalkulacja'] as $kalk) {
+//            $kalk['id'] => ['amount' => $kalk['ilosc']],
+//        }
+
+
+//            1 => ['amount' => $_POST['1']],
+//            3 => ['amount' => $_POST['2']],
+//            4 => ['amount' => $_POST['3']],
+//            5 => ['amount' => $_POST['4']],
+//            6 => ['amount' => $_POST['5']],
+//            8 => ['amount' => $_POST['6']],
+//            10 => ['amount' => $_POST['7']],
+//            12 => ['amount' => $_POST['8']],
+//            13 => ['amount' => $_POST['9']],
+//            14 => ['amount' => $_POST['10']],
+//            17 => ['amount' => $_POST['11']],
+   //
 
 
 
