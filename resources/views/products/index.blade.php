@@ -4,13 +4,13 @@
 <div class="container">
 <div class="row">
     <div class="col-6"> <h1>Lista produktów </h1> </div>
-    
+
     <div class="col-6">
         <a class="float-right" href="{{ route('products.create') }}">
             <button type="button" class="btn btn-primary">Dodaj produkt</button>
         </a>
     </div>
-    
+
 </div>
 <div class="row">
 <table class="table table-hover">
@@ -36,13 +36,13 @@
           <a href="{{route('products.show', $product -> id ) }}">
               <button class="btn btn-success btn-sm">P</button>
           </a>
-          
-          
+
+
           <a href="{{route('products.edit', $product -> id ) }}">
               <button class="btn btn-primary btn-sm">E</button>
           </a>
-          
-          <button class="btn btn-danger btn-sm delete" data-id="{{$product -> id}}"> 
+
+          <button class="btn btn-danger btn-sm delete" data-id="{{$product -> id}}">
               X
           </button>
       </td>
@@ -50,7 +50,7 @@
     @endforeach
   </tbody>
 </table>
-    
+
     <div class="d-flex justify-content-center">{{ $products->links() }}</div>
 </div>
 </div>
@@ -59,18 +59,55 @@
 @section('javascript')
 $(function() {
  $('.delete').click(function() {
-    $.ajax({
-        method: "DELETE",
-        url: "http://sunb2b.test/products/"+ $(this).data("id")
+Swal.fire({
+title: 'Czy na pewno chcesz usunąć produkt?',
+text: "Nie będziesz mógł cofnąć tej akcji!",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'Tak, usuń.',
+cancelButtonText: 'Anuluj'
+}).then((result) => {
+if (result.isConfirmed) {
+$.ajax({
+method: "DELETE",
+url: "http://sunb2b.test/products/"+ $(this).data("id")
 <!--        data: { id: $(this).data("id") }-->
 })
-  .done(function( response ) {
-  window.location.reload();
-  
-  })
-  .fail(function( response ){
-  alert("ERROR");
-  });
+.done(function( response ) {
+window.location.reload();
+})
+.fail(function( response ){
+Swal.fire({
+icon: 'error',
+title: 'Ups...',
+text: 'Coś poszło nie tak!'
+})
+});
+Swal.fire(
+'Produkt usunięty.',
+'',
+'success')}
+})
+
+
+
+
+
+
+//     $.ajax({
+//         method: "DELETE",
+//         url: "http://sunb2b.test/products/"+ $(this).data("id")
+// <!--        data: { id: $(this).data("id") }-->
+// })
+//   .done(function( response ) {
+//   window.location.reload();
+//
+//   })
+//   .fail(function( response ){
+//   alert("ERROR");
+//   });
 });
 });
 

@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container">
-    
+
     <div class="row">
     <div class="col-6"> <h1>Lista zamówień </h1> </div>
-         
-    
-    
-    
+
+
+
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -30,12 +30,12 @@
           <a href="{{route('orders.show', $order -> id ) }}">
               <button class="btn btn-success btn-sm">P</button>
           </a>
-          
-          
+
+
           <a href="{{route('orders.edit', $order -> id ) }}">
               <button class="btn btn-primary btn-sm">E</button>
           </a>
-          <button class="btn btn-danger btn-sm delete" data-id="{{$order -> id}}"> 
+          <button class="btn btn-danger btn-sm delete" data-id="{{$order -> id}}">
               X
           </button>
       </td>
@@ -44,7 +44,7 @@
   </tbody>
 </table>
     <div class="d-flex justify-content-center">{{ $orders->links() }}</div>
-    
+
 </div>
 @endsection
 
@@ -52,18 +52,55 @@
 
 $(function() {
  $('.delete').click(function() {
-    $.ajax({
+        Swal.fire({
+        title: 'Czy na pewno chcesz usunąć to zamówienie?',
+        text: "Nie będziesz mógł cofnąć tej akcji!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Tak, usuń.',
+        cancelButtonText: 'Anuluj'
+        }).then((result) => {
+        if (result.isConfirmed) {
+        $.ajax({
         method: "DELETE",
         url: "http://sunb2b.test/orders/"+ $(this).data("id")
-<!--        data: { id: $(this).data("id") }-->
-})
-  .done(function( response ) {
-  window.location.reload();
-  
-  })
-  .fail(function( response ){
-  alert("ERROR");
-  });
+        <!--        data: { id: $(this).data("id") }-->
+        })
+        .done(function( response ) {
+        window.location.reload();
+        })
+        .fail(function( response ){
+        Swal.fire({
+        icon: 'error',
+        title: 'Ups...',
+        text: 'Coś poszło nie tak!'
+        })
+        });
+        Swal.fire(
+        'Zamówienie usunięte.',
+        '',
+        'success')}
+        })
+
+
+
+
+
+
+//     $.ajax({
+//         method: "DELETE",
+//         url: "http://sunb2b.test/orders/"+ $(this).data("id")
+// <!--        data: { id: $(this).data("id") }-->
+// })
+//   .done(function( response ) {
+//   window.location.reload();
+//
+//   })
+//   .fail(function( response ){
+//   alert("ERROR");
+//   });
 });
 });
 

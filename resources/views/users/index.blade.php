@@ -2,19 +2,19 @@
 
 @section('content')
 <div class="container">
-    
+
     <div class="row">
     <div class="col-6"> <h1>Lista użytkowników </h1> </div>
-    
+
     <div class="col-6">
         <a class="float-right" href="{{ route('users.create') }}">
             <button type="button" class="btn btn-primary">Dodaj użytkownika</button>
         </a>
     </div>
-    
-    
-    
-    
+
+
+
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -32,26 +32,26 @@
     <tr>
       <th scope="row">{{$user -> id}}</th>
       <td class="align-middle">{{$user -> name}}</td>
-      <td class="align-middle">{{$user -> nip}}</td> 
-      <td class="align-middle">{{$user-> email }}</td> 
-      <td class="align-middle">{{$user -> phone}}</td> 
+      <td class="align-middle">{{$user -> nip}}</td>
+      <td class="align-middle">{{$user-> email }}</td>
+      <td class="align-middle">{{$user -> phone}}</td>
       <td class="align-middle" style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
          {{$user -> street}}<br>
          {{ $user -> postal_code }}
          {{ $user -> city }}<br>
          {{ $user -> state }}<br>
          {{ $user -> country->name ?? ""}}
-      </td> 
+      </td>
       <td class="align-middle">
           <a href="{{route('users.show', $user -> id ) }}">
               <button class="btn btn-success btn-sm">P</button>
           </a>
-          
-          
+
+
           <a href="{{route('users.edit', $user -> id ) }}">
               <button class="btn btn-primary btn-sm">E</button>
           </a>
-          <button class="btn btn-danger btn-sm delete" data-id="{{$user -> id}}"> 
+          <button class="btn btn-danger btn-sm delete" data-id="{{$user -> id}}">
               X
           </button>
       </td>
@@ -60,7 +60,7 @@
   </tbody>
 </table>
     <div class="d-flex justify-content-center">{{ $users->links() }}</div>
-    
+
 </div>
 @endsection
 
@@ -68,18 +68,39 @@
 
 $(function() {
  $('.delete').click(function() {
-    $.ajax({
+        Swal.fire({
+        title: 'Czy na pewno chcesz usunąć użytkownika?',
+        text: "Nie będziesz mógł cofnąć tej akcji!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Tak, usuń.',
+        cancelButtonText: 'Anuluj'
+        }).then((result) => {
+        if (result.isConfirmed) {
+        $.ajax({
         method: "DELETE",
         url: "http://sunb2b.test/users/"+ $(this).data("id")
-<!--        data: { id: $(this).data("id") }-->
-})
-  .done(function( response ) {
-  window.location.reload();
-  
-  })
-  .fail(function( response ){
-  alert("ERROR");
-  });
+        <!--        data: { id: $(this).data("id") }-->
+        })
+        .done(function( response ) {
+        window.location.reload();
+        })
+        .fail(function( response ){
+        Swal.fire({
+        icon: 'error',
+        title: 'Ups...',
+        text: 'Coś poszło nie tak!'
+        })
+        });
+        Swal.fire(
+        'Użytkownik usunięty.',
+        '',
+        'success'
+        )
+        }
+        })
 });
 });
 
