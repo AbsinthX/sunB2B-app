@@ -41,6 +41,9 @@
                             <a class="nav-link" href="{{ route('calculator') }}">{{ __('Kalkulator') }}</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('shop') }}">{{ __('Sklep') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('users.index') }}">{{ __('Użytkownicy') }}</a>
                         </li>
                         <li class="nav-item">
@@ -75,6 +78,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('news') }}">{{ __('Aktualności') }}</a>
                                     <a class="dropdown-item" href="{{ route('calculator') }}">{{ __('Kalkulator') }} </a>
+                                    <a class="dropdown-item" href="{{ route('shop') }}">{{ __('Sklep') }} </a>
                                     <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Użytkownicy') }} </a>
                                     <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('Produkty') }}</a>
                                     <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('Zamówienia') }}</a>

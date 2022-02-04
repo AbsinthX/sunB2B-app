@@ -3,13 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterStep2Controller;
 
-use App\Http\Controllers\{
+use App\Http\Controllers\{ShopController,
     UserController,
     HomeController,
     ProductController,
     CalculatorController,
-    OrderController
-};
+    OrderController};
 
 
 /*
@@ -26,6 +25,9 @@ use App\Http\Controllers\{
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/aktualności', [HomeController::class, 'index'])->name('news');
 
+
+
+Route::get('/sklep', [ShopController::class, 'shop'])->name('shop');
 
 Route::middleware('auth')->group(function(){
 Route::get('register-step2', [RegisterStep2Controller::class, 'showForm']);
