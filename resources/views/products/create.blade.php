@@ -54,6 +54,41 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Konstrukcje') }}</label>
+
+                            <div class="col-md-6">
+
+                                <div class="form-check">
+                                    <input class="form-check-input" name="kat[]" type="checkbox" value="1" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Dach z dachówką
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="kat[]" type="checkbox" value="2" id="defaultCheck2">
+                                    <label class="form-check-label" for="defaultCheck2">
+                                        Dach z blachodachówki
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="kat[]" type="checkbox" value="3" id="defaultCheck3">
+                                    <label class="form-check-label" name="kat[]" for="defaultCheck3">
+                                        Dach z blachą trapezową
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="4" id="defaultCheck4">
+                                    <label class="form-check-label" for="defaultCheck4">
+                                        Trójkąty z balastem
+                                    </label>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Cena') }}</label>
 
                             <div class="col-md-6">

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderProduct;
 use App\Models\Product;
-use App\Models\ProductCategory;
+use App\Models\ProductProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-class ProductController extends Controller
+class ProductCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +18,6 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index', [
-            'products' => Product::paginate(10)
-        ]);
     }
 
     /**
@@ -26,9 +25,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id1, $id2)
     {
-        return view('products.create');
+        ProductCategory::create([
+            'product_id' => $id1,
+            'productCategory_id' => $id2,
+        ]);
     }
 
     /**
@@ -39,13 +41,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-         $product = new Product($request->all());
-        if($request->hasFile('image')){
-            $product->image_path = $request->file('image')->store('products');
-        }
-         $product->save();
-        $product->categories()->sync($request['kat']);
-         return redirect(route('products.index'));
     }
 
     /**
@@ -56,9 +51,6 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('products.show', [
-            'product' => $product
-        ]);
     }
 
     /**
@@ -70,9 +62,6 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
 
-        return view('products.edit', [
-            'product' => $product
-        ]);
     }
 
     /**
@@ -84,13 +73,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $product->fill($request->all());
-        if($request->hasFile('image')){
-            $product->image_path = $request->file('image')->store('products');
-        }
-        $product->save();
-        $product->categories()->sync($request['kat']);
-        return redirect(route('products.index'));
     }
 
     /**
@@ -101,11 +83,5 @@ class ProductController extends Controller
      */
     public function destroy($id)
 {
-            $product = Product::find($id);
-            $product->orders()->detach();
-            $product->categories()->detach();
-            $product->delete();
-            return response()->json([
-            'status' => 'success']);
 }
 }

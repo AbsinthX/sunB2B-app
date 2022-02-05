@@ -14,11 +14,18 @@ class Product extends Model
         'name',
         'description',
         'amount',
-        'price'
+        'price',
+        'category_id'
     ];
 
     public function orders()
     {
         return $this->belongsToMany(Order::class)->withTimestamps();
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(ProductCategory::class)->withTimestamps();
+    }
+
 }
