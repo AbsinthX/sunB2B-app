@@ -19,9 +19,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'role',
         'phone',
         'password',
-        'country_id', 
+        'country_id',
         'nip',
         'street',
         'city',
@@ -47,15 +48,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     public function country()
     {
         return $this->belongsTo('App\Models\Country');
     }
-    
+
     public function orders()
     {
         return $this->hasMany(Order::class);
     }
-    
+
 }

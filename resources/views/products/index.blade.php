@@ -34,10 +34,11 @@
       <td>{{$product -> amount}}</td>
       <td>{{$product -> price}}</td>
       <td>
+          @if(Gate::check('isAdmin') || Gate::check('isUser'))
           <a href="{{route('products.show', $product -> id ) }}">
               <button class="btn btn-success btn-sm"><i class="fas fa-search"></i></button>
           </a>
-
+          @endif
 
           <a href="{{route('products.edit', $product -> id ) }}">
               <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
