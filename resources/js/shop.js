@@ -1,10 +1,21 @@
 $(function() {
     $('a#filter-button').click(function() {
+            getProducts( $('a.products-actual-count').first().text());
+    });
+
+    $('div.products-count a').click(function (event) {
+        event.preventDefault();
+        $('a.products-actual-count').text($(this).text());
+        getProducts($(this).text());
+    });
+
+
+    function getProducts(paginate){
         const form = $('form.sidebar-filter').serialize();
         $.ajax({
             method: "GET",
             url: "/sklep",
-            data: form
+            data: form + "&" + $.param({paginate: paginate})
         })
             .done(function (response) {
                 $('div#products-wrapper').empty();
@@ -28,9 +39,9 @@ $(function() {
                 });
             })
             .fail(function (data) {
-             alert("FAIL...");
+                alert("FAIL...");
             })
-    });
+    }
 
     function getImage(product) {
         if (!!product.image_path) {
@@ -38,5 +49,4 @@ $(function() {
         }
         return defaultImage;
     }
-
 });

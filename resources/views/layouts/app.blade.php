@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <i class="fas fa-sun"></i> {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -35,22 +35,22 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('news') }}">{{ __('Aktualności') }}</a>
+                            <a class="nav-link" href="{{ route('news') }}"><i class="far fa-newspaper"></i> {{ __('Aktualności') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('calculator') }}">{{ __('Kalkulator') }}</a>
+                            <a class="nav-link" href="{{ route('calculator') }}"><i class="fas fa-calculator"></i> {{ __('Kalkulator') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('shop') }}">{{ __('Sklep') }}</a>
+                            <a class="nav-link" href="{{ route('shop') }}"><i class="fas fa-cart-arrow-down"></i> {{ __('Sklep') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('users.index') }}">{{ __('Użytkownicy') }}</a>
+                            <a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-users"></i> {{ __('Użytkownicy') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.index') }}">{{ __('Produkty') }}</a>
+                            <a class="nav-link" href="{{ route('products.index') }}"><i class="fas fa-warehouse"></i> {{ __('Produkty') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('orders.index') }}">{{ __('Zamówienia') }}</a>
+                            <a class="nav-link" href="{{ route('orders.index') }}"><i class="fas fa-cart-arrow-down"></i> {{ __('Zamówienia') }}</a>
                         </li>
                     </ul>
 
@@ -76,16 +76,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('news') }}">{{ __('Aktualności') }}</a>
-                                    <a class="dropdown-item" href="{{ route('calculator') }}">{{ __('Kalkulator') }} </a>
-                                    <a class="dropdown-item" href="{{ route('shop') }}">{{ __('Sklep') }} </a>
-                                    <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Użytkownicy') }} </a>
-                                    <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('Produkty') }}</a>
-                                    <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('Zamówienia') }}</a>
+                                    <a class="dropdown-item" href="{{ route('news') }}"><i class="far fa-newspaper"></i> {{ __('Aktualności') }}</a>
+                                    <a class="dropdown-item" href="{{ route('calculator') }}"><i class="fas fa-calculator"></i> {{ __('Kalkulator') }} </a>
+                                    <a class="dropdown-item" href="{{ route('shop') }}"><i class="fas fa-cart-arrow-down"></i> {{ __('Sklep') }} </a>
+                                    <a class="dropdown-item" href="{{ route('users.index') }}"><i class="fas fa-users"></i> {{ __('Użytkownicy') }} </a>
+                                    <a class="dropdown-item" href="{{ route('products.index') }}"><i class="fas fa-warehouse"></i> {{ __('Produkty') }}</a>
+                                    <a class="dropdown-item" href="{{ route('products.index') }}"><i class="fas fa-cart-arrow-down"></i> {{ __('Zamówienia') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Wyloguj') }}
+                                        <i class="fas fa-power-off"></i> {{ __('Wyloguj') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

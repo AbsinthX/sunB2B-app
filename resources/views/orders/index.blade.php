@@ -4,10 +4,7 @@
 <div class="container">
 
     <div class="row">
-    <div class="col-6"> <h1>Lista zamówień </h1> </div>
-
-
-
+    <div class="col-6"> <h1><i class="fas fa-list"></i> Lista zamówień </h1> </div>
 
 <table class="table table-hover">
   <thead>
@@ -28,15 +25,15 @@
       <td class="align-middle">{{$order -> value * 1.23}}</td>
       <td class="align-middle">
           <a href="{{route('orders.show', $order -> id ) }}">
-              <button class="btn btn-success btn-sm">P</button>
+              <button class="btn btn-success btn-sm"><i class="fas fa-search"></i></button>
           </a>
 
 
           <a href="{{route('orders.edit', $order -> id ) }}">
-              <button class="btn btn-primary btn-sm">E</button>
+              <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
           </a>
           <button class="btn btn-danger btn-sm delete" data-id="{{$order -> id}}">
-              X
+              <i class="fas fa-trash-alt"></i>
           </button>
       </td>
     </tr>

@@ -4,11 +4,11 @@
 <div class="container">
 
     <div class="row">
-    <div class="col-6"> <h1>Lista użytkowników </h1> </div>
+    <div class="col-6"> <h1><i class="fas fa-list"></i> Lista użytkowników </h1> </div>
 
     <div class="col-6">
         <a class="float-right" href="{{ route('users.create') }}">
-            <button type="button" class="btn btn-primary">Dodaj użytkownika</button>
+            <button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Dodaj użytkownika</button>
         </a>
     </div>
 
@@ -44,15 +44,15 @@
       </td>
       <td class="align-middle">
           <a href="{{route('users.show', $user -> id ) }}">
-              <button class="btn btn-success btn-sm">P</button>
+              <button class="btn btn-success btn-sm"><i class="fas fa-search"></i></button>
           </a>
 
 
           <a href="{{route('users.edit', $user -> id ) }}">
-              <button class="btn btn-primary btn-sm">E</button>
+              <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
           </a>
           <button class="btn btn-danger btn-sm delete" data-id="{{$user -> id}}">
-              X
+              <i class="fas fa-trash-alt"></i>
           </button>
       </td>
     </tr>

@@ -11,7 +11,10 @@ class ShopController extends Controller
         public function shop()
     {
         $filters=request()->query('filter');
+        $paginate=request()->query('paginate')?? 50;
+
         $query=Product::query();
+
         if(!is_null($filters)){
             if (array_key_exists('categories', $filters)) {
                 $query = $query->whereHas('categories', function ($q) use ($filters) {
@@ -25,14 +28,13 @@ class ShopController extends Controller
             $query = $query->where('price','<=',$filters['price_max']);
             }
 
-                return response()->json([
-                    'data' => $query->get()
-                ]);
+                return response()->json($query->paginate($paginate));
                 }
+
         $products = Product::all();
         $categories = ProductCategory::all();
         return view('shop.shop', [
-            'products' => $query->paginate(100),
+            'products' => $query->paginate($paginate),
             'categories' => ProductCategory::all(),
             'defaultImage'=>'https://via.placeholder.com/240x240/5fa9f8/efefef']);
     }
