@@ -1,48 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card w-100">
+                    <div class="card-header"><i class="fas fa-list"></i> Zamówienia:</div>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th style="width: 5%" scope="col">#</th>
+                            <th style="width: 15%" scope="col">Kontrahent</th>
+                            <th style="width: 10%" scope="col">Status</th>
+                            <th style="width: 15%" scope="col">Wartość brutto</th>
+                            <th style="width: 20%" scope="col">Akcje</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($orders as $order)
+                            <tr>
+                                <th scope="row">{{$order -> id}}</th>
+                                <td class="align-middle">{{$order -> owner}}</td>
+                                <td class="align-middle">{{$order -> status}}</td>
+                                <td class="align-middle">{{$order -> value * 1.23}}</td>
+                                <td class="align-middle">
+                                    <a href="{{route('orders.show', $order -> id ) }}">
+                                        <button class="btn btn-success btn-sm"><i class="fas fa-search"></i></button>
+                                    </a>
 
-    <div class="row">
-    <div class="col-6"> <h1><i class="fas fa-list"></i> Lista zamówień </h1> </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th style="width: 5%" scope="col">#</th>
-      <th style="width: 15%" scope="col">Kontrahent</th>
-      <th style="width: 10%" scope="col">Status</th>
-      <th style="width: 15%" scope="col">Wartość brutto</th>
-      <th style="width: 20%" scope="col">Akcje</th>
-    </tr>
-  </thead>
-  <tbody>
-      @foreach($orders as $order)
-    <tr>
-      <th scope="row">{{$order -> id}}</th>
-      <td class="align-middle">{{$order -> owner}}</td>
-      <td class="align-middle">{{$order -> status}}</td>
-      <td class="align-middle">{{$order -> value * 1.23}}</td>
-      <td class="align-middle">
-          <a href="{{route('orders.show', $order -> id ) }}">
-              <button class="btn btn-success btn-sm"><i class="fas fa-search"></i></button>
-          </a>
+                                    <a href="{{route('orders.edit', $order -> id ) }}">
+                                        <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                    </a>
+                                    <button class="btn btn-danger btn-sm delete" data-id="{{$order -> id}}">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center">{{ $orders->links() }}</div>
 
-
-          <a href="{{route('orders.edit', $order -> id ) }}">
-              <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-          </a>
-          <button class="btn btn-danger btn-sm delete" data-id="{{$order -> id}}">
-              <i class="fas fa-trash-alt"></i>
-          </button>
-      </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
-    <div class="d-flex justify-content-center">{{ $orders->links() }}</div>
-
-</div>
+                </div>
 @endsection
 
 @section('javascript')

@@ -32,10 +32,11 @@ Route::middleware('auth')->group(function(){
 Route::get('register-step2', [RegisterStep2Controller::class, 'showForm']);
 Route::post('register-step2', [RegisterStep2Controller::class, 'postForm'])->name('register.step2');
 
-Route::get('/sklep', [ShopController::class, 'shop'])->name('shop');
+Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
 
-Route::post('/sklep', [CartController::class, 'store'])->name('cart.store');
-
+Route::post('/shop', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.show');
+Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
 
 Route::resource('users', UserController::class);
 

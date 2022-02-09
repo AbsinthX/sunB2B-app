@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Order;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
@@ -176,7 +177,7 @@ $_POST['city'].'
    //
 
 
-
+        Cart::destroy();
         return 'Sukces';
     }
 

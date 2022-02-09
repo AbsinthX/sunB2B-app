@@ -1,19 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-12">
+                <div class="card">
+
+                    <div class="card-header d-flex align-items-center">
+                        <span><i class="fas fa-list"></i> Lista użytkowników</span>
+                        <a class="ml-auto btn-primary btn" href="{{ route('users.create') }}" role="button"><i class="fas fa-plus"></i> Dodaj użytkownika</a>
+                    </div>
+
 <div class="container">
-
-    <div class="row">
-    <div class="col-6"> <h1><i class="fas fa-list"></i> Lista użytkowników </h1> </div>
-
-    <div class="col-6">
-        <a class="float-right" href="{{ route('users.create') }}">
-            <button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Dodaj użytkownika</button>
-        </a>
-    </div>
-
-
-
 
 <table class="table table-hover">
   <thead>

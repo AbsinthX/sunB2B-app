@@ -1,14 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
+
 <div class="col-lg-12">
+    @if(session('message'))
+        <div class="alert alert-success" id="success-alert" role="alert">
+            <h3><p class="text-center">{{session('message')}}</p></h3>
+        </div>
+    @endif
     <div class="card">
 
         <div class="card-header d-flex align-items-center">
             <span><i class="fas fa-cart-arrow-down"></i>{{ __('Sklep') }}</span>
-            <a class="ml-auto btn-primary btn" href="#" role="button"><i class="fa-solid fa-basket-shopping"></i>Koszyk (0) </a>
+            <a class="ml-auto btn-primary btn" href="{{ route('cart.show') }}" role="button"><i class="fa-solid fa-basket-shopping"></i>Koszyk ({{ \Gloudemans\Shoppingcart\Facades\Cart::content()->count() }}) </a>
         </div>
 
 <div class="container pt-5">
@@ -56,6 +63,7 @@
                             </div>
                             <form action="{{route('cart.store')}}" method="POST">
                                 <div class="input-group">
+                                    <input type="hidden" value="{{$product->id}}" name="product_id">
                                     <input name="quantity" type="number" step="1" min="0" class="form-control" value="1">
                                     <button type="submit" class="btn btn-outline-primary">
                                         <i class="fas fa-cart-arrow-down"></i> Dodaj do koszyka
@@ -123,6 +131,13 @@
 @section('javascript')
     const storagePath = '{{asset('storage')}}/';
     const defaultImage = '{{$defaultImage}}';
+
+    $(document).ready(function() {
+    $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+    $("#success-alert").slideUp(500);
+    });
+    });
+
 @endsection
 @section('js-files')
     <script src="{{ asset("js/shop.js") }}"></script>
