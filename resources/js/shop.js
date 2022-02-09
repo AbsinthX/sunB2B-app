@@ -3,6 +3,10 @@ $(function() {
             getProducts( $('a.products-actual-count').first().text());
     });
 
+    $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+        $("#success-alert").slideUp(500);
+    });
+
     $('div.products-count a').click(function (event) {
         event.preventDefault();
         $('a.products-actual-count').text($(this).text());
@@ -14,7 +18,7 @@ $(function() {
         const form = $('form.sidebar-filter').serialize();
         $.ajax({
             method: "GET",
-            url: "/sklep",
+            url: "/shop",
             data: form + "&" + $.param({paginate: paginate})
         })
             .done(function (response) {

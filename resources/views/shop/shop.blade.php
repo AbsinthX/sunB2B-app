@@ -131,14 +131,7 @@
 @section('javascript')
     const storagePath = '{{asset('storage')}}/';
     const defaultImage = '{{$defaultImage}}';
-
-    $(document).ready(function() {
-    $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-    $("#success-alert").slideUp(500);
-    });
-    });
-
 @endsection
 @section('js-files')
-    <script src="{{ asset("js/shop.js") }}"></script>
+    <script src="{{asset('js/shop.js')}}"></script>
 @endsection
