@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterStep2Controller;
 
-use App\Http\Controllers\{ShopController,
+use App\Http\Controllers\{CartController,
+    ShopController,
     UserController,
     HomeController,
     ProductController,
@@ -32,6 +33,9 @@ Route::get('register-step2', [RegisterStep2Controller::class, 'showForm']);
 Route::post('register-step2', [RegisterStep2Controller::class, 'postForm'])->name('register.step2');
 
 Route::get('/sklep', [ShopController::class, 'shop'])->name('shop');
+
+Route::post('/sklep', [CartController::class, 'store'])->name('cart.store');
+
 
 Route::resource('users', UserController::class);
 

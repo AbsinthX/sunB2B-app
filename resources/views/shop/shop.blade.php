@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
 <div class="col-lg-12">
     <div class="card">
-<div class="card-header"><i class="fas fa-cart-arrow-down"></i>{{ __('Sklep') }}</div>
+
+        <div class="card-header d-flex align-items-center">
+            <span><i class="fas fa-cart-arrow-down"></i>{{ __('Sklep') }}</span>
+            <a class="ml-auto btn-primary btn" href="#" role="button"><i class="fa-solid fa-basket-shopping"></i>Koszyk (0) </a>
+        </div>
 
 <div class="container pt-5">
     <div class="row">
@@ -40,14 +44,25 @@
                                 <img src="{{$defaultImage}}" class="img-fluid mx-auto d-block" alt="Card image cap">
                                     @endif
                             </div>
-                            <div class="card-body text-center">
+                            <div class="card-body text-center d-flex flex-column">
+                                <div class="mt-auto">
                                 <h4 class="card-title">
                                     {{$product->name}}
                                 </h4>
                                 <h5 class="card-price small">
                                     <i>{{$product->price}} zł</i>
                                 </h5>
+                                </div>
                             </div>
+                            <form action="{{route('cart.store')}}" method="POST">
+                                <div class="input-group">
+                                    <input name="quantity" type="number" step="1" min="0" class="form-control" value="1">
+                                    <button type="submit" class="btn btn-outline-primary">
+                                        <i class="fas fa-cart-arrow-down"></i> Dodaj do koszyka
+                                    </button>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                     @endforeach
