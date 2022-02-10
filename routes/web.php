@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterStep2Controller;
 
 use App\Http\Controllers\{CartController,
+    PostController,
     ShopController,
     UserController,
     HomeController,
@@ -23,8 +24,8 @@ use App\Http\Controllers\{CartController,
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/aktualności', [HomeController::class, 'index'])->name('news');
+Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/news', [PostController::class, 'index'])->name('news');
 
 
 
@@ -43,6 +44,8 @@ Route::resource('users', UserController::class);
 Route::resource('products', ProductController::class);
 
 Route::resource('orders', OrderController::class);
+
+Route::resource('posts', PostController::class);
 
 Route::get('/calculator', [CalculatorController::class, 'index'])->name('calculator');
 Route::post('/ordersummary', [CalculatorController::class, 'summary'])->name('calculator.summary');

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Podgląd zamówienia') }}</div>
 
                 <div class="card-body">
-                    
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Numer zamówienia') }}</label>
 
@@ -17,7 +17,7 @@
 
                             </div>
                         </div>
-                    
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Kontrahent') }}</label>
 
@@ -40,11 +40,12 @@
                             <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Uwagi') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="amount" type="text" min="0" class="form-control" name="amount" value="{{ $order->comments }}" required autocomplete="amount"  disabled>{{ $order->comments }}</textarea>
-
+                                <td style="white-space: pre-wrap;">
+                                <textarea id="amount" type="text" min="0" class="form-control" name="amount" value="{!! $order->comments !!}" required autocomplete="amount"  disabled>{{ $order->comments }}</textarea>
+                                </td>
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Wartość netto') }}</label>
 
@@ -53,7 +54,7 @@
 
                             </div>
                         </div>
-                    
+
                         <div class="form-group row">
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Wartość brutto') }}</label>
 
@@ -70,7 +71,7 @@
 
                             </div>
                         </div>
-                    
+
                         <div class="form-group row">
                             <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Pozycje zamówienia') }}</label></br>
 
@@ -92,12 +93,12 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                
+
 <!--                                @foreach($order->products as $product)
                                 ID: {{ $product->id }} Ilość: {{ $product->name }}</br>
                                 @endforeach-->
-                                
-                                
+
+
                             </div>
                         </div>
                 </div>
