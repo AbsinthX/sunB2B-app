@@ -25,7 +25,6 @@ use App\Http\Controllers\{CartController,
 */
 
 Route::get('/', [PostController::class, 'index'])->name('home');
-Route::get('/news', [PostController::class, 'index'])->name('news');
 
 
 

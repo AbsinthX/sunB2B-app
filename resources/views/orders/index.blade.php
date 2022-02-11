@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card w-100">
+                <div class="card w-100 mt-3">
                     <div class="card-header"><i class="fas fa-list"></i> Zamówienia:</div>
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th style="width: 5%" scope="col">#</th>
+                            <th style="width: 5%" scope="col">ID</th>
                             <th style="width: 15%" scope="col">Kontrahent</th>
                             <th style="width: 10%" scope="col">Status</th>
                             <th style="width: 15%" scope="col">Wartość brutto</th>
@@ -20,7 +20,7 @@
                         @foreach($orders as $order)
                             <tr>
                                 <th scope="row">{{$order -> id}}</th>
-                                <td class="align-middle">{{$order -> owner}}</td>
+                                <td class="align-middle">{{$order -> user -> name}}</td>
                                 <td class="align-middle">{{$order -> status}}</td>
                                 <td class="align-middle">{{$order -> value * 1.23}}</td>
                                 <td class="align-middle">
@@ -43,6 +43,10 @@
                     <div class="d-flex justify-content-center">{{ $orders->links() }}</div>
 
                 </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('javascript')

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mt-3">
                 <div class="card-header">{{ __('Podgląd zamówienia') }}</div>
 
                 <div class="card-body">
@@ -22,7 +22,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Kontrahent') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" maxlength="500" class="form-control" name="name" value="{{ $order->owner }}" required autocomplete="name" disabled>
+                                <input id="name" type="text" maxlength="500" class="form-control" name="name" value="{{$order -> user -> name}}" required autocomplete="name" disabled>
 
                             </div>
                         </div>
@@ -82,23 +82,19 @@
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Nazwa</th>
+                                            <th scope="col">Ilość</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($order->products as $product)
+                                        @foreach($order->products as $prod)
                                         <tr>
-                                            <th scope="row">{{ $product->id }}</th>
-                                            <td>{{ $product->name }}</td>
+                                            <th scope="row">{{ $prod->id }}</th>
+                                            <td>{{ $prod->name }}</td>
+                                            <td>{{ $prod->pivot->amount}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-
-<!--                                @foreach($order->products as $product)
-                                ID: {{ $product->id }} Ilość: {{ $product->name }}</br>
-                                @endforeach-->
-
-
                             </div>
                         </div>
                 </div>

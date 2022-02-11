@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mt-3">
                 <div class="card-header">{{ __('Edytuj użytkownika') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('users.update', $user->id) }}">
-                        @method('put') //naprawia błąd z resource
+                        @method('put')
                         @csrf
 
                       <div class="form-group row">

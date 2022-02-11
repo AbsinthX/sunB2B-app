@@ -27,7 +27,7 @@ $(function() {
                     const html = '<div class="col-6 col-md-6 col-lg-4 mb-3">' +
                         '            <div class="card h-100 border-0">' +
                         '                <div class="card-img-top">' +
-                        '                    <img src="' + getImage(product) +'" class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">' +
+                        '                    <img src="' + getImage(product) + '" class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">' +
                         '                </div>' +
                         '                <div class="card-body text-center">' +
                         '                    <h4 class="card-title">' +
@@ -37,6 +37,18 @@ $(function() {
                         '                        <i>' + product.price + ' zł</i>' +
                         '                    </h5>' +
                         '                </div>' +
+                        '<form action="/shop" method="POST">\n' +
+                        '                                                        <div class="input-group">\n' +
+                        '                                                            <input type="hidden" value="'+ product.id +'"\n' +
+                        '                                                                   name="product_id">\n' +
+                        '                                                            <input name="quantity" type="number" step="1" min="0"\n' +
+                        '                                                                   class="form-control" value="1">\n' +
+                        '                                                            <button type="submit" class="btn btn-outline-primary">\n' +
+                        '                                                                <i class="fas fa-cart-arrow-down"></i> Dodaj do koszyka\n' +
+                        '                                                            </button>\n' +
+                        '                                                        </div>\n' +
+                        '                                                    </form>'
+                        '</div>' +
                         '            </div>' +
                         '        </div>';
                     $('div#products-wrapper').append(html);

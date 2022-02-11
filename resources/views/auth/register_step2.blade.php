@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mt-5">
                 <div class="card-header">{{ __('Register Step 2 (optional)') }}</div>
 
                 <div class="card-body">
@@ -22,7 +22,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
                             <div class="col-md-6">
@@ -34,7 +34,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Telefon') }}</label>
                             <div class="col-md-6">
@@ -46,7 +46,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('NIP') }}</label>
                             <div class="col-md-6">
@@ -58,7 +58,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Ulica') }}</label>
                             <div class="col-md-6">
@@ -70,8 +70,8 @@
                                 @enderror
                             </div>
                         </div>
-                        
-                        
+
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Kod pocztowy') }}</label>
                             <div class="col-md-6">
@@ -83,8 +83,8 @@
                                 @enderror
                             </div>
                         </div>
-                        
-                        
+
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Miasto') }}</label>
                             <div class="col-md-6">
@@ -96,7 +96,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Województwo') }}</label>
 
@@ -116,7 +116,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Pańśtwo') }}</label>
 
@@ -136,7 +136,7 @@
                             </div>
                         </div>
 
-                        
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

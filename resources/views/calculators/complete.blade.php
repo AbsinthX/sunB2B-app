@@ -1,25 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card w-100">
 
-
-                    <div class="card-header">{{ __('Kalkulacja') }}</div>
-                    <div class="card-body mx-auto">
-                            <h1>Dziękujemy za złożenie zamówienia.</h1><br>
-                            <div class="row justify-content-center">
-                                <a class="float-lg-none" href="{{ route('orders.index') }}">
-                                    <button type="button" class="btn btn-primary btn-lg">Moje zamówienia</button>
-                                </a>
-                            </div>
+    <header class="py-5">
+        <div class="container px-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xxl-6">
+                    <div class="text-center my-5">
+                        <h1 class="fw-bolder mb-3">Dziękujemy za złożenie zamówienia.</h1>
+                        <p class="lead fw-normal text-muted mb-4">Postaramy się zrealizować je tak szybko jak to możliwe.</p>
+                        <a class="btn btn-primary btn-lg" href="{{ route('orders.index') }}">Moje zamówienia</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </header>
 @endsection

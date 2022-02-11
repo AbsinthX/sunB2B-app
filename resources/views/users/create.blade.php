@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mt-3">
                 <div class="card-header">{{ __('Dodaj produkt') }}</div>
 
                 <div class="card-body">
-                    
+
                     <form method="POST" action="{{ route('users.store') }}">
                         @csrf
 
@@ -23,7 +23,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
                             <div class="col-md-6">
@@ -35,7 +35,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Telefon') }}</label>
                             <div class="col-md-6">
@@ -47,7 +47,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('NIP') }}</label>
                             <div class="col-md-6">
@@ -59,7 +59,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Ulica') }}</label>
                             <div class="col-md-6">
@@ -71,8 +71,8 @@
                                 @enderror
                             </div>
                         </div>
-                        
-                        
+
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Kod pocztowy') }}</label>
                             <div class="col-md-6">
@@ -84,8 +84,8 @@
                                 @enderror
                             </div>
                         </div>
-                        
-                        
+
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Miasto') }}</label>
                             <div class="col-md-6">
@@ -97,7 +97,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Województwo') }}</label>
 
@@ -117,13 +117,13 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Państwo') }}</label>
 
                             <div class="col-md-6">
                                 <select name="country_id" class="form-control @error('country_id') is-invalid @enderror">
-                                    @if (old('country_id')!=0) 
+                                    @if (old('country_id')!=0)
                                     <option value="{{ old('country_id') }}">
                                         <?php $idc=old('country_id'); ?>
                                         {{$countries[$idc-1]->name }}</option>

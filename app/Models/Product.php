@@ -20,7 +20,7 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class)->withTimestamps();
+        return $this->belongsToMany(Order::class)->withPivot('amount')->withTimestamps();
     }
 
     public function categories()

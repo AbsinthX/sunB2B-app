@@ -1,16 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card w-100">
-                    <div class="card-header">{{ __('Kalkulacja') }}</div>
-                    <div class="card-body">
+    <header class="py-5">
+        <div class="container px-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xxl-8">
                             <div class="container1">
                                 <div class="Kalkulacja px-md-4">
-                                    <div class="card-header">{{ __('Produkty') }}</div>
+                                    <div class="card-header text-white bg-dark">{{ __('Produkty') }}</div>
                                     <div class="card-body"></div>
                                     <div class="content" >
                                         <table class="table table-striped">
@@ -42,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="Adres px-md-4 ">
-                                    <div class="card-header">{{ __('Dostawa i uwagi') }}</div>
+                                    <div class="card-header text-white bg-dark">{{ __('Dostawa i uwagi') }}</div>
                                     <div class="card-body"></div>
                                     <div class="content" >
                                         <form action="{{ route('calculator.orderComplete') }}" method="POST">
@@ -97,7 +95,7 @@
 
 
                                 <div class="Uwagi px-md-4">
-                                    <div class="card-header">{{ __('Zamówienie') }}</div>
+                                    <div class="card-header text-white bg-dark">{{ __('Zamówienie') }}</div>
                                     <div class="card-body"></div>
                                     <div class="content" >
                                         <a class="float-left">
@@ -121,13 +119,10 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </header>
 @endsection
 @section('javascript')
     $("#more").change(function(e){

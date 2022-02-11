@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'owner',
         'status',
@@ -16,17 +16,17 @@ class Order extends Model
         'value',
         'delivery_address'
     ];
-    
-    
-    
-    
+
+
+
+
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'owner');
     }
-    
+
     public function products()
     {
-        return $this->belongsToMany(Product::class)->withTimestamps();
+        return $this->belongsToMany(Product::class)->withPivot('amount')->withTimestamps();
     }
 }
