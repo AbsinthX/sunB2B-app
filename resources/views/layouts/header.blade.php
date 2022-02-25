@@ -32,12 +32,15 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    @auth
                     <li class="nav-item"> <a class="nav-link" href="{{ route('home') }}"><i class="far fa-newspaper"></i> {{ __('Strona główna') }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('calculator') }}"><i class="fas fa-calculator"></i> {{ __('Kalkulator') }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('shop') }}"><i class="fas fa-cart-arrow-down"></i> {{ __('Sklep') }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-users"></i> {{ __('Użytkownicy') }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}"><i class="fas fa-warehouse"></i> {{ __('Produkty') }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('orders.index') }}"><i class="fas fa-cart-arrow-down"></i> {{ __('Zamówienia') }}</a></li>
+                    @endauth
+
 
                     @guest
                         @if (Route::has('login'))

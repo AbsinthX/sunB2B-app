@@ -98,7 +98,6 @@ public function calculate(Request $request)
         }
         else {
             $tbl = [];
-            //$_GET['1'] = Product::find(1)->name;
             $panele = filter_input(INPUT_GET, "panele", FILTER_VALIDATE_INT);
             $rzedy = filter_input(INPUT_GET, "rzędy", FILTER_VALIDATE_INT);
 
@@ -120,8 +119,14 @@ public function calculate(Request $request)
 
     $array = unserialize(base64_decode($request['result']));
 
-    if ($_POST['typ']=='przedplata') $status = 'Przychodzące';
-    else $status = 'Odroczony termin płatności';
+    if ($_POST['typ']=='przedplata') {
+        $payment = 'Przedpłata';
+        $status = 'Przychodzące';
+    }
+    else {
+        $payment = 'Odroczony termin płatności';
+        $status = 'Przyjęte do realizacji';
+    }
 
 
     if (isset($_POST['innedane'])){
@@ -141,6 +146,7 @@ $_POST['city'].'
             'owner' => Auth::id(),
             'status' => $status,
             'comments' => $_POST['info'],
+            'payment'=> $payment,
             'value' => $array['result1'],
             'delivery_address' => $adres,
             'user_id' => Auth::id(),
@@ -151,34 +157,9 @@ $_POST['city'].'
             $order->products()->syncWithoutDetaching([
                 $kalk['id'] => ['amount' => $kalk['ilosc']],
                 ]);
-            };
-
-
-     //   $order->products()->sync([
-//            foreach ($array('kalkulacja') as $kalk){
-//                $kalk[0][0] => ['amount' => $kalk[0][1]],
-//            }
-//        foreach ($array['kalkulacja'] as $kalk) {
-//            $kalk['id'] => ['amount' => $kalk['ilosc']],
-//        }
-
-
-//            1 => ['amount' => $_POST['1']],
-//            3 => ['amount' => $_POST['2']],
-//            4 => ['amount' => $_POST['3']],
-//            5 => ['amount' => $_POST['4']],
-//            6 => ['amount' => $_POST['5']],
-//            8 => ['amount' => $_POST['6']],
-//            10 => ['amount' => $_POST['7']],
-//            12 => ['amount' => $_POST['8']],
-//            13 => ['amount' => $_POST['9']],
-//            14 => ['amount' => $_POST['10']],
-//            17 => ['amount' => $_POST['11']],
-   //
-
-
+            }
         Cart::destroy();
-        return 'Sukces';
+        return 'Success';
     }
 
 

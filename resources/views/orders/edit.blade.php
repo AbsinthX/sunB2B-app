@@ -30,7 +30,7 @@
                             <label for="owner" class="col-md-4 col-form-label text-md-right">{{ __('Kontrahent') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="owner" maxlength="1500" class="form-control @error('owner') is-invalid @enderror" name="owner"  autofocus>{{ $order->owner }}</textarea>
+                                <textarea id="owner" maxlength="1500" class="form-control @error('owner') is-invalid @enderror" name="owner"  autofocus disabled>{{$order -> user -> name}}</textarea>
 
                                 @error('owner')
                                     <span class="invalid-feedback" role="alert">
@@ -39,6 +39,29 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="status" class="form-control @error('status') is-invalid @enderror">
+                                    <option value="{{ $order->status }}" {!! old('status ') == $order->status ? 'selected="selected"' : '' !!}>{{ $order->status }}</option>
+                                    @foreach(config('enums.status') as $key => $value)
+                                        {{ $key }}
+                                        <option value="{{ $value }}">{{ $value }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('country_id')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                        </div>
+
+
 
                         <div class="form-group row">
                             <label for="comments" class="col-md-4 col-form-label text-md-right">{{ __('Uwagi') }}</label>
@@ -58,13 +81,23 @@
                             <label for="value" class="col-md-4 col-form-label text-md-right">{{ __('Wartość netto') }}</label>
 
                             <div class="col-md-6">
-                                <input id="value" type="number" min="0" class="form-control @error('value') is-invalid @enderror" name="value" value="{{ $order->value }}" required autocomplete="value"  autofocus>
+                                <input id="value" type="number" min="0" step="0.01" class="form-control @error('value') is-invalid @enderror" name="value" value="{{ $order->value }}" required autocomplete="value"  autofocus>
 
                                 @error('value')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="payment" class="col-md-4 col-form-label text-md-right">{{ __('Sposób płatności') }}</label>
+
+                            <div class="col-md-6">
+                                <td style="white-space: pre-wrap;">
+                                    <input id="payment" type="text" class="form-control" name="payment" value="{!! $order->payment !!}" required autocomplete="amount"  disabled>
+                                </td>
                             </div>
                         </div>
 

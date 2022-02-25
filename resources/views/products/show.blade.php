@@ -26,14 +26,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Ilość') }}</label>
+{{--                        <div class="form-group row">--}}
+{{--                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Ilość') }}</label>--}}
 
-                            <div class="col-md-6">
-                                <input id="amount" type="number" min="0" class="form-control" name="amount" value="{{ $product->amount }}" required autocomplete="amount"  disabled>
+{{--                            <div class="col-md-6">--}}
+{{--                                <input id="amount" type="number" min="0" class="form-control" name="amount" value="{{ $product->amount }}" required autocomplete="amount"  disabled>--}}
 
-                            </div>
-                        </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="form-group row">
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Cena') }}</label>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -63,9 +65,11 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
+        $roles = UserRole::TYPES;
+
         return view('orders.edit', [
             'order' => $order
-        ]);
+        ], compact('roles'));
     }
 
     /**
@@ -96,8 +100,8 @@ class OrderController extends Controller
             return response()->json([
             'status' => 'success']);
     }
-    
-    
-    
-    
+
+
+
+
 }

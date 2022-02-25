@@ -14,7 +14,9 @@ class Order extends Model
         'status',
         'comments',
         'value',
-        'delivery_address'
+        'delivery_address',
+        'user_id',
+        'payment'
     ];
 
 
@@ -22,7 +24,7 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'owner');
+        return $this->belongsTo(User::class);
     }
 
     public function products()

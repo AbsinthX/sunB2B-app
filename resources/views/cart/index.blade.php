@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card w-100">
+                <div class="card w-100 mt-3 mb-3">
                     <div class="card-header"><i class="fas fa-list"></i> Zawartość koszyka:</div>
 
                     <form class="form-horizontal" action="{{ route('calculator.summary') }}" method="POST">
@@ -35,8 +35,9 @@
                                         <td class="align-middle">{{$c -> qty * $c -> price}}</td>
                                         <td class="align-middle">
                                             <a href="{{route('cart.delete', $c -> rowId) }}">
-                                                <button class="btn btn-danger btn-sm delete"><i
-                                                        class="fas fa-trash-alt"></i></button>
+                                                <button type="button" class="btn btn-danger btn-sm delete"><i
+                                                        class="fas fa-trash-alt"></i>
+                                                </button>
                                             </a>
                                         </td>
                                     </tr>
@@ -59,4 +60,6 @@
                 </div>
             </div>
         </div>
+    </div>
+
 @endsection

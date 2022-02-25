@@ -59,10 +59,21 @@
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Wartość brutto') }}</label>
 
                             <div class="col-md-6">
-                                <input id="price" type="number" step="0.01" min="0" class="form-control" name="price" value="{{ $order->value * 1.23 }}" required autocomplete="price" disabled>
+                                <input id="price" type="number" step="0.01" min="0" class="form-control" name="price" value="{{round($order -> value * 1.23,2)}}" required autocomplete="price" disabled>
 
                             </div>
                         </div>
+
+                    <div class="form-group row">
+                        <label for="payment" class="col-md-4 col-form-label text-md-right">{{ __('Sposób płatności') }}</label>
+
+                        <div class="col-md-6">
+                            <td style="white-space: pre-wrap;">
+                                <input id="payment" type="text" class="form-control" name="payment" value="{!! $order->payment !!}" required autocomplete="amount"  disabled>
+                            </td>
+                        </div>
+                    </div>
+
                         <div class="form-group row">
                             <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Adres dostawy') }}</label>
 
@@ -83,6 +94,7 @@
                                             <th scope="col">ID</th>
                                             <th scope="col">Nazwa</th>
                                             <th scope="col">Ilość</th>
+                                            <th scope="col">Wartość</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -91,6 +103,7 @@
                                             <th scope="row">{{ $prod->id }}</th>
                                             <td>{{ $prod->name }}</td>
                                             <td>{{ $prod->pivot->amount}}</td>
+                                            <td>{{ $prod->pivot->amount * $prod->price}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

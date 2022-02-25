@@ -22,7 +22,7 @@
                                 <th scope="row">{{$order -> id}}</th>
                                 <td class="align-middle">{{$order -> user -> name}}</td>
                                 <td class="align-middle">{{$order -> status}}</td>
-                                <td class="align-middle">{{$order -> value * 1.23}}</td>
+                                <td class="align-middle">{{round($order -> value * 1.23,2)}} zł</td>
                                 <td class="align-middle">
                                     <a href="{{route('orders.show', $order -> id ) }}">
                                         <button class="btn btn-success btn-sm"><i class="fas fa-search"></i></button>

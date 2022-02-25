@@ -31,6 +31,7 @@ class CartController extends Controller
         );
         return redirect()->route('shop')->with('message','Produkt dodany do koszyka.');
     }
+    
     public function delete($rowId)
     {
         Cart::remove($rowId);

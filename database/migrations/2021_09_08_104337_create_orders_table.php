@@ -17,11 +17,16 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('owner',500);
             $table->string('status', 50);
-            $table->string('comments', 500);
+            $table->string('comments', 500)->nullable();
+            $table->string('payment',100);
             $table->decimal('value');
             $table->string('delivery_address', 500);
-            $table->unsignedBigInteger('user_id')->constrained()->nullable();
-            $table->timestamps(); 
+            $table->foreignId('user_id')
+                ->constrained()
+                ->nullable()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');;
+            $table->timestamps();
             });
     }
 
