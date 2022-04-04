@@ -65,6 +65,8 @@
 @endsection
 
 @section('javascript')
+    const deleteUrl = "{{ url('products') }}/";
+
 $(function() {
  $('.delete').click(function() {
 Swal.fire({
@@ -80,7 +82,7 @@ cancelButtonText: 'Anuluj'
 if (result.isConfirmed) {
 $.ajax({
 method: "DELETE",
-url: "http://sunb2b.test/products/"+ $(this).data("id")
+url: deleteUrl + $(this).data("id")
 <!--        data: { id: $(this).data("id") }-->
 })
 .done(function( response ) {

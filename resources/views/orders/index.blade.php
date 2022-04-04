@@ -50,6 +50,8 @@
 @endsection
 
 @section('javascript')
+    const deleteUrl = "{{ url('orders') }}/";
+
 
 $(function() {
  $('.delete').click(function() {
@@ -66,7 +68,7 @@ $(function() {
         if (result.isConfirmed) {
         $.ajax({
         method: "DELETE",
-        url: "http://sunb2b.test/orders/"+ $(this).data("id")
+        url: deleteUrl + $(this).data("id")
         <!--        data: { id: $(this).data("id") }-->
         })
         .done(function( response ) {
