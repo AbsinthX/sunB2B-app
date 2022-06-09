@@ -1,10 +1,12 @@
 <h1 align="center">☀︎ SunB2B ☀︎</h1>
 <h3 align="center">Aplikacja B2B dla branży fotowoltaicznej</h3>
 
-- 🕸️ Aplikacja dostępna jest pod adresem [http://konradptak.pl/](http://konradptak.pl/)
+- 🕸️ Aplikacja dostępna jest pod adresem [http://konradptak.pl/](http://konradptak.pl/) 🕸️
 - Zalogować się do niej możemy poprzez dane:<br>
 >admin@wp.pl   
 >Haslo1234#
+- Aplikacja pozwala wyliczyć ilość elementów potrzebnych do instalacji paneli fotowoltaicznych na różnych rodzajach dachów. Pozwala ona na złożenie zamówienia na zakup elementów, a także na zarządzanie statusem zamówień.
+
 
 <h3 align="center">Wykorzystane technologie</h3>
 
@@ -13,6 +15,10 @@
 - JS<br>
 - biblioteka jQuery<br>
 - HTML/CSS<br>
+- AWS EC2<br>
+- Linux - Ubuntu<br>
+- nginx<br>
+- MariaDB<br>
 
 <h3 align="center">Wykonane i planowane funkcjonalności</h3>
 
