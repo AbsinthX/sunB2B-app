@@ -5,7 +5,7 @@
 - Zalogować się do niej możemy poprzez dane:<br>
 >admin@wp.pl   
 >Haslo1234#
-- Aplikacja pozwala wyliczyć ilość elementów potrzebnych do instalacji paneli fotowoltaicznych na różnych rodzajach dachów. Pozwala ona na złożenie zamówienia na zakup elementów, a także na zarządzanie statusem zamówień. Dostępny jest również sklep z mechanizmem koszyka gdzie przeglądać można wszystkie dostępne produkty ([LaravelShoppingcart by bumbummen99]([http://konradptak.pl/](https://github.com/bumbummen99/LaravelShoppingcart))). Wszystkie kluczowe obiekty posiadają także dostępne dla administratora panele CRUD.<br>
+- Aplikacja pozwala wyliczyć ilość elementów potrzebnych do instalacji paneli fotowoltaicznych na różnych rodzajach dachów. Pozwala ona na złożenie zamówienia na zakup elementów, a także na zarządzanie statusem zamówień. Dostępny jest również sklep z mechanizmem koszyka gdzie przeglądać można wszystkie dostępne produkty ([LaravelShoppingCart by bumbummen99](https://github.com/bumbummen99/LaravelShoppingcart)). Wszystkie kluczowe obiekty posiadają także dostępne dla administratora panele CRUD.<br>
 - Aplikacja została samodzielnie udostępniona przy pomocy AWS Free Tier. Postawiona jest na serwerze nginx zainstalowanym na instancji EC2 - Ubuntu 20. Bazę danych umieściłem na MariaDB.  
 
 <h3 align="center">Wykorzystane technologie i oprogramowanie</h3>
