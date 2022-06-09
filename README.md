@@ -39,3 +39,4 @@
 - [ ] Dopisanie limitów długości znaków do bazy danych
 - [ ] Zastosowanie podziału na role użytkowników
 - [ ] Stworzenie wewnętrznego systemu wiadomości między użytkownikami
+- [ ] Rozwój aplikacj i refaktoryzacja kodu
