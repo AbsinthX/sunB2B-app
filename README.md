@@ -41,3 +41,6 @@
 - [ ] Stworzenie wewnętrznego systemu wiadomości między użytkownikami
 - [ ] Rozwój aplikacj i refaktoryzacja kodu
 - [ ] Testy
+
+
+<h1 align="center">:gb: SunB2B :gb:</h1>
