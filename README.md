@@ -1,4 +1,5 @@
-<h1 align="center">:poland: ☀︎ SunB2B ☀︎</h1>
+<h2>:poland:</h2>
+<h1 align="center"> ☀︎ SunB2B ☀︎</h1>
 <h3 align="center">Aplikacja B2B dla branży fotowoltaicznej</h3>
 
 - 🕸️ Aplikacja dostępna jest pod adresem [http://konradptak.pl/](http://konradptak.pl/) 🕸️
@@ -43,5 +44,6 @@
 - [ ] Testy
 
 
-<h1 align="center">:gb: ☀︎ SunB2B ☀︎</h1>
+<h2>:GB: :england:</h2>
+<h1 align="center"> ☀︎ SunB2B ☀︎</h1>
 <h3 align="center">Soon...</h3>
