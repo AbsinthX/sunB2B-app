@@ -44,6 +44,6 @@
 - [ ] Testy
 
 
-<h2>:GB: :england:</h2>
+<h2>:gb:</h2>
 <h1 align="center"> ☀︎ SunB2B ☀︎</h1>
 <h3 align="center">Soon...</h3>
