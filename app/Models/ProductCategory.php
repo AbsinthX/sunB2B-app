@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductCategory extends Model
 {
+    /*
+     * Model odpowiedzialny za kategorie produktów.
+     */
     use HasFactory;
 
     protected $fillable = [
@@ -15,6 +18,7 @@ class ProductCategory extends Model
 
     public function products()
     {
+        // Relacja many to many z produktami.
         return $this->belongsToMany(Product::class)->withTimestamps();
     }
 }

@@ -12,7 +12,7 @@ use Illuminate\View\View;
 class ProductCategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Kontroler odpowiadający za kategorie produktów.
      *
      * @return \Illuminate\Http\Response
      */

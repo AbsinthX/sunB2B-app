@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    /*
+     * Model odpowiadający za zamówienia.
+     */
+
     use HasFactory;
 
     protected $fillable = [
@@ -24,11 +28,13 @@ class Order extends Model
 
     public function user()
     {
+        // Relacja one to many z użytkownikami.
         return $this->belongsTo(User::class);
     }
 
     public function products()
     {
+        // Relacja many to many z produktami. Dodatkowa wartość w tabeli pivot -> ilość.
         return $this->belongsToMany(Product::class)->withPivot('amount')->withTimestamps();
     }
 }

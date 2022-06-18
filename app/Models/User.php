@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Model odpowiedzialny za użytkowników.
      *
      * @var array
      */
@@ -51,11 +51,13 @@ class User extends Authenticatable
 
     public function country()
     {
+        // Relacja one to many z państwami.
         return $this->belongsTo('App\Models\Country');
     }
 
     public function orders()
     {
+        // Relacja one to many z zamówieniami.
         return $this->hasMany(Order::class);
     }
 

@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Shop Controller
+    |--------------------------------------------------------------------------
+     * Kontroler wyświetlający sklep, obsługujący filtry.
+     *
+     *TODO: Paginacja JS przy filtrowaniu.
+     */
+
+
         public function shop()
     {
         $filters=request()->query('filter');

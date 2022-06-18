@@ -9,6 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Country extends Model
 {
+    /*
+     * Model odpowiedzialny za wybór państwa.
+     * Przygotowany z myślą o rozbudowie aplikacji o obsługę klientów zagranicznych.
+     * Przygotowany razem z odpowiednim seeder'em.
+     */
+
     use SoftDeletes;
     use HasFactory;
 
@@ -32,10 +38,10 @@ class Country extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
-    
+
     public function country()
     {
         return $this->hasMAny('App\Models\User');
     }
-    
+
 }

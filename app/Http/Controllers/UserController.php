@@ -12,7 +12,7 @@ use Illuminate\Validation\Rules\Password;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Kontroler odpowiadający za użytkowników.
      *
      * @return \Application\Factory\View
      */
@@ -40,17 +40,17 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-       
-    
+
+
     public function store(Request $request)
-    {     
+    {
         $validated = $request->validate([
         'name' => 'required|max:255',
         'email' => 'required|unique:users',
         'nip' => 'required|unique:users',
         'password' => 'required|confirmed'
     ]);
-        
+
         $user = new User($request->all());
         $user['password'] = Hash::make($user['password']);
         $user->save();
@@ -95,7 +95,7 @@ class UserController extends Controller
     {
         $user->fill($request->all());
         $user->save();
-        
+
         return redirect(route('users.index'));
     }
 
@@ -113,7 +113,7 @@ class UserController extends Controller
             'status' => 'success'
         ]);
     }
-    
-    
-    
+
+
+
 }

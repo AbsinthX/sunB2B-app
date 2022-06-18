@@ -12,7 +12,7 @@ use Illuminate\View\View;
 class ProductProductCategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Kontroler odpowiadający za relację 'many to many' między produktem a kategoriami.
      *
      * @return \Illuminate\Http\Response
      */

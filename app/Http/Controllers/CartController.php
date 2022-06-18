@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cart Controller
+    |--------------------------------------------------------------------------
+     *  Koszyk wykorzystuje paczkę LaravelShoppingcart by bumbummen99 (https://github.com/bumbummen99/LaravelShoppingcart).
+     * Implemetacja koszyka wykorzystana na stronie sklepu, pozwalająca dodawać i usuwać produkty z koszyka, które zapisywane są w sesji użytkownika.
+     *
+     */
+
     public function index(Request $request)
     {
         $product = Product::all();
@@ -31,7 +41,7 @@ class CartController extends Controller
         );
         return redirect()->route('shop')->with('message','Produkt dodany do koszyka.');
     }
-    
+
     public function delete($rowId)
     {
         Cart::remove($rowId);

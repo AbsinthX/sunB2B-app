@@ -11,7 +11,7 @@ use Illuminate\View\View;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Kontroler odpowiadający za tworzenie relacji 'many to many' między produktem a zamówieniem.
      *
      * @return \Illuminate\Http\Response
      */

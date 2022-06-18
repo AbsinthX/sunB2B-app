@@ -10,7 +10,8 @@ use Illuminate\View\View;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Kontroler odpowiadający za produkty.
+     * Standardowy CRUD.
      *
      * @return \Illuminate\Http\Response
      */
@@ -40,6 +41,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        /*
+         * Dodawanie produktu wraz ze zdjęciem.
+         */
+
          $product = new Product($request->all());
         if($request->hasFile('image')){
             $product->image_path = $request->file('image')->store('products');
@@ -85,6 +90,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        /*
+         * Edycja produktu wraz ze zdjęciem.
+         * TODO: Usuwanie zdjęcia z dysku przy edycji zdjęcia/usunięciu produktu.
+         */
+
         $product->fill($request->all());
         if($request->hasFile('image')){
             $product->image_path = $request->file('image')->store('products');
@@ -102,6 +112,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
 {
+        /*
+         * Usuwanie produktu wraz ze zdjęciem.
+         * TODO: Usuwanie zdjęcia z dysku przy edycji zdjęcia/usunięciu produktu.
+         */
+
             $product = Product::find($id);
             $product->orders()->detach();
             $product->categories()->detach();

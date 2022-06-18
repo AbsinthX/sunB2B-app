@@ -1,5 +1,7 @@
 <?php
 
+// Inny z zastosowanych sposobów na dodanie enum'ów.
+
 return [
     'states' => [
         'poza Polską',
