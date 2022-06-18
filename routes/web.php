@@ -23,9 +23,13 @@ use App\Http\Controllers\{CartController,
 |
 */
 
-//Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/', 'home')->name('home');
 
+/*
+ * Aplikacja wymaga zalogowania do większości funkcji.
+ *
+ * TODO: Podział na role i jego zastowanie w widokach.
+ */
 
 Route::middleware('auth')->group(function(){
 Route::get('register-step2', [RegisterStep2Controller::class, 'showForm']);

@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 class ProductCategoriesTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seeder dodający kategorie produktów.
      *
      * @return void
      */

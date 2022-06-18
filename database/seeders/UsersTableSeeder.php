@@ -10,7 +10,7 @@ use Illuminate\Database\Seeder;
 class UsersTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seeder dodający podstawowych użytkowników dla każdej roli.
      *
      * @return void
      */

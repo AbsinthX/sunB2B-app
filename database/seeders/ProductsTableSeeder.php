@@ -8,7 +8,9 @@ use Illuminate\Database\Seeder;
 class ProductsTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seeder dodający produkty niezbędne do działania aplikacji.
+     *
+     * TODO: Dodanie seedera który dodawałby katerogie do tych produktów.
      *
      * @return void
      */
