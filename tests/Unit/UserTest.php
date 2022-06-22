@@ -33,4 +33,28 @@ class UserTest extends TestCase
         $this->assertTrue($user1->email != $user2->email);
 
     }
+
+    public function test_delete_user()
+    {
+        $user = User::factory()->count(1)->make();
+        $user = User::first();
+
+        if($user){
+            $user->delete();
+        }
+
+        $this->assertTrue(true);
+    }
+
+    public function test_it_stores_new_users()
+    {
+        $response = $this->post('/register',[
+            'name' => 'TestPol',
+            'email' => 'testpol@wp.pl',
+            'password' => 'haslo1234',
+            'password_confirmation' => 'haslo1234'
+        ]);
+
+        $response->assertRedirect('/register-step2');
+    }
 }
