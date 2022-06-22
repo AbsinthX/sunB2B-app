@@ -37,6 +37,7 @@
 - [ ] Wysyłka e-mail'i
 - [ ] Podpięcie systemu płatności
 - [ ] Dopisanie walidacji w miejscach gdzie jej brakuje
+- [ ] Try-catch, obsługa błędów, wyjątków
 - [ ] Dopisanie limitów długości znaków do bazy danych
 - [ ] Zastosowanie podziału na role użytkowników
 - [ ] Stworzenie wewnętrznego systemu wiadomości między użytkownikami
