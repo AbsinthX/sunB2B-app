@@ -5,6 +5,9 @@
 
     <header class="py-5">
         <div class="container px-5">
+
+            <?php echo "<pre>" . var_export($_REQUEST, true) . "</pre>";  ?>
+
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xxl-10">
                     <table class="table table-borderless">
